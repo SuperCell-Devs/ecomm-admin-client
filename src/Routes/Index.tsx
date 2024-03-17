@@ -14,11 +14,11 @@ const RouteIndex = () => {
             key={idx}
             path={route.path}
             element={
-              <AuthProtected>
+              // <AuthProtected>
                 <Layout>
                   <route.component />
                 </Layout>
-              </AuthProtected>
+              // </AuthProtected>
             }
           />
         ))}

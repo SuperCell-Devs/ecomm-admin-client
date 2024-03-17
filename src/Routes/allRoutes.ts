@@ -196,6 +196,37 @@ import Pricing from "pages/Pages/Pricing";
 import Faqs from "pages/Pages/Faqs";
 import ContactUs from "pages/Pages/ContactUs";
 
+// Import product views
+import ProductsAddNew from "Common/platform/products/add";
+import ProductsEdit from "Common/platform/products/edit";
+import ProductsListView from "Common/platform/products";
+import ProductsOverview from "Common/platform/products/overview";
+
+// Import vendor views
+import VendorAddNew from "Common/platform/vendors/add";
+import VendorEdit from "Common/platform/vendors/edit";
+import VendorListView from "Common/platform/vendors";
+
+// Import brand views
+import BrandAddNew from "Common/platform/brands/add";
+import BrandEdit from "Common/platform/brands/edit";
+import BrandListView from "Common/platform/brands";
+
+// Import country views
+import CountryAddNew from "Common/platform/country/add";
+import CountryEdit from "Common/platform/country/edit";
+import CountryListView from "Common/platform/country";
+
+// Import district views
+import DistrictAddNew from "Common/platform/district/add";
+import DistrictEdit from "Common/platform/district/edit";
+import DistrictListView from "Common/platform/district";
+
+
+
+
+
+
 interface RouteObject {
   path: string;
   component: React.ComponentType<any>; // Use React.ComponentType to specify the type of the component
@@ -203,6 +234,41 @@ interface RouteObject {
 }
 
 const authProtectedRoutes: Array<RouteObject> = [
+
+  // System routes start here
+
+
+  // Products
+  { path: "/products", component: ProductsListView },
+  { path: "/products-add", component: ProductsAddNew },
+  { path: "/products-edit", component: ProductsEdit },
+  { path: "/products/overview/", component: ProductsOverview },
+
+  // country
+  { path: "/country", component: CountryListView },
+  { path: "/country-add", component: CountryAddNew },
+  { path: "/country-edit", component: CountryEdit },
+
+  // districts
+  { path: "/district", component: DistrictListView },
+  { path: "/district-add", component: DistrictAddNew },
+  { path: "/district-edit", component: DistrictEdit },
+  
+
+  // brand
+  { path: "/brand", component: BrandListView },
+  { path: "/brand-add", component: BrandAddNew },
+  { path: "/brand-edit", component: BrandEdit },
+
+  // vendor
+  { path: "/vendor", component: VendorListView },
+  { path: "/vendor-add", component: VendorAddNew },
+  { path: "/vendor-edit", component: VendorEdit },
+
+
+
+  // System routes end here
+  
   // Dashboard
   { path: "/", component: Ecommerce },
   { path: "/dashboard", component: Ecommerce },

@@ -21,7 +21,7 @@ import {
 import { ToastContainer } from "react-toastify";
 import filterDataBySearch from "Common/filterDataBySearch";
 
-const ListView = () => {
+const ProductsListView = () => {
 
     const dispatch = useDispatch<any>();
 
@@ -230,4 +230,4 @@ const ListView = () => {
     );
 };
 
-export default ListView;;
+export default ProductsListView;

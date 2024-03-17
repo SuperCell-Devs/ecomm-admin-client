@@ -1,7 +1,7 @@
 import axios from "axios";
 // import { api } from "../config";
 
-axios.defaults.baseURL = "";
+axios.defaults.baseURL = "http://10.77.77.242/api/v1/";
 // content type
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
@@ -92,6 +92,261 @@ class APIClient {
   delete = (url: any, config: any) => {
     return axios.delete(url, { ...config });
   };
+}
+
+export class ProductsApi {
+  /**
+     * Fetches data from given url
+     */
+
+    //  get = (url, params) => {
+    //   return axios.get(url, params);
+    // };
+    get = (url: any, params: any) => {
+      let response;
+
+      let paramKeys: any = [];
+
+      if (params) {
+        Object.keys(params).map(key => {
+          paramKeys.push(key + '=' + params[key]);
+          return paramKeys;
+        });
+
+        const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
+        response = axios.get(`${url}?${queryString}`, params);
+      } else {
+        response = axios.get(`${url}`, params);
+      }
+
+      return response;
+    };
+    /**
+     * post given data to url
+     */
+    create = (url: any, data: any) => {
+      return axios.post(url, data);
+    };
+    /**
+     * Updates data
+     */
+    update = (url: any, data: any) => {
+      return axios.patch(url, data);
+    };
+
+    put = (url: any, data: any) => {
+      return axios.put(url, data);
+    };
+    /**
+     * Delete
+     */
+    delete = (url: any, config: any) => {
+      return axios.delete(url, { ...config });
+    };
+}
+
+export class BrandsApi {
+  /**
+     * Fetches data from given url
+     */
+
+    //  get = (url, params) => {
+    //   return axios.get(url, params);
+    // };
+    get = (url: any, params: any) => {
+      let response;
+
+      let paramKeys: any = [];
+
+      if (params) {
+        Object.keys(params).map(key => {
+          paramKeys.push(key + '=' + params[key]);
+          return paramKeys;
+        });
+
+        const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
+        response = axios.get(`${url}?${queryString}`, params);
+      } else {
+        response = axios.get(`${url}`, params);
+      }
+
+      return response;
+    };
+    /**
+     * post given data to url
+     */
+    create = (url: any, data: any) => {
+      return axios.post(url, data);
+    };
+    /**
+     * Updates data
+     */
+    update = (url: any, data: any) => {
+      return axios.patch(url, data);
+    };
+
+    put = (url: any, data: any) => {
+      return axios.put(url, data);
+    };
+    /**
+     * Delete
+     */
+    delete = (url: any, config: any) => {
+      return axios.delete(url, { ...config });
+    };
+}
+
+export class CountryApi {
+  /**
+     * Fetches data from given url
+     */
+
+    //  get = (url, params) => {
+    //   return axios.get(url, params);
+    // };
+    get = (url: any, params: any) => {
+      let response;
+
+      let paramKeys: any = [];
+
+      if (params) {
+        Object.keys(params).map(key => {
+          paramKeys.push(key + '=' + params[key]);
+          return paramKeys;
+        });
+
+        const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
+        response = axios.get(`${url}?${queryString}`, params);
+      } else {
+        response = axios.get(`${url}`, params);
+      }
+
+      return response;
+    };
+    /**
+     * post given data to url
+     */
+    create = (url: any, data: any) => {
+      return axios.post(url, data);
+    };
+    /**
+     * Updates data
+     */
+    update = (url: any, data: any) => {
+      return axios.patch(url, data);
+    };
+
+    put = (url: any, data: any) => {
+      return axios.put(url, data);
+    };
+    /**
+     * Delete
+     */
+    delete = (url: any, config: any) => {
+      return axios.delete(url, { ...config });
+    };
+}
+
+export class DistrictApi{
+   /**
+     * Fetches data from given url
+     */
+
+    //  get = (url, params) => {
+    //   return axios.get(url, params);
+    // };
+    get = (url: any, params: any) => {
+      let response;
+
+      let paramKeys: any = [];
+
+      if (params) {
+        Object.keys(params).map(key => {
+          paramKeys.push(key + '=' + params[key]);
+          return paramKeys;
+        });
+
+        const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
+        response = axios.get(`${url}?${queryString}`, params);
+      } else {
+        response = axios.get(`${url}`, params);
+      }
+
+      return response;
+    };
+    /**
+     * post given data to url
+     */
+    create = (url: any, data: any) => {
+      return axios.post(url, data);
+    };
+    /**
+     * Updates data
+     */
+    update = (url: any, data: any) => {
+      return axios.patch(url, data);
+    };
+
+    put = (url: any, data: any) => {
+      return axios.put(url, data);
+    };
+    /**
+     * Delete
+     */
+    delete = (url: any, config: any) => {
+      return axios.delete(url, { ...config });
+    };
+}
+
+export class VendorsApi{
+  /**
+    * Fetches data from given url
+    */
+
+   //  get = (url, params) => {
+   //   return axios.get(url, params);
+   // };
+   get = (url: any, params: any) => {
+     let response;
+
+     let paramKeys: any = [];
+
+     if (params) {
+       Object.keys(params).map(key => {
+         paramKeys.push(key + '=' + params[key]);
+         return paramKeys;
+       });
+
+       const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
+       response = axios.get(`${url}?${queryString}`, params);
+     } else {
+       response = axios.get(`${url}`, params);
+     }
+
+     return response;
+   };
+   /**
+    * post given data to url
+    */
+   create = (url: any, data: any) => {
+     return axios.post(url, data);
+   };
+   /**
+    * Updates data
+    */
+   update = (url: any, data: any) => {
+     return axios.patch(url, data);
+   };
+
+   put = (url: any, data: any) => {
+     return axios.put(url, data);
+   };
+   /**
+    * Delete
+    */
+   delete = (url: any, config: any) => {
+     return axios.delete(url, { ...config });
+   };
 }
 const getLoggedUser = () => {
 

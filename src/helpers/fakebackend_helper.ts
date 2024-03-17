@@ -1,6 +1,13 @@
-import { APIClient } from "./api_helper";
+import { APIClient, BrandsApi, CountryApi, DistrictApi, ProductsApi, VendorsApi } from "./api_helper";
 
 import * as url from "./url_helper";
+
+
+const productsApi = new ProductsApi();
+const brandsApi = new BrandsApi();
+const countryApi = new CountryApi();
+const districtApi = new DistrictApi();
+const vendorApi = new VendorsApi();
 
 const api = new APIClient();
 // Gets the logged in user data from local session
@@ -102,23 +109,51 @@ export const updateSellers = (data: any) => api.update(url.UPDATE_SELLERS, data)
 export const deleteSellers = (data: any) => api.delete(url.DELETE_SELLERS, { headers: { data } });
 
 // Products
-// List View
-export const getProductList = () => api.get(url.GET_PRODUCT_LIST, null);
-export const addProductList = (data: any) => api.create(url.ADD_PRODUCT_LIST, data);
-export const updateProductList = (data: any) => api.update(url.UPDATE_PRODUCT_LIST, data);
-export const deleteProductList = (data: any) => api.delete(url.DELETE_PRODUCT_LIST, { headers: { data } });
+export const getProductList = () => productsApi.get(url.GET_PRODUCT_LIST, null);
+export const addProductList = (data: any) => productsApi.create(url.ADD_PRODUCT_LIST, data);
+export const updateProductList = (data: any) => productsApi.update(url.UPDATE_PRODUCT_LIST, data);
+export const deleteProductList = (data: any) => productsApi.delete(url.DELETE_PRODUCT_LIST, { headers: { data } });
 
-// Grid View
-export const getProductGrid = () => api.get(url.GET_PRODUCT_GRID, null);
-export const addProductGrid = (data: any) => api.create(url.ADD_PRODUCT_GRID, data);
-export const updateProductGrid = (data: any) => api.update(url.UPDATE_PRODUCT_GRID, data);
-export const deleteProductGrid = (data: any) => api.delete(url.DELETE_PRODUCT_GRID, { headers: { data } });
 
-// Overview
-export const getReview = () => api.get(url.GET_REVIEW, null);
-export const addReview = (data: any) => api.create(url.ADD_REVIEW, data);
-export const updateReview = (data: any) => api.update(url.UPDATE_REVIEW, data);
-export const deleteReview = (data: any) => api.delete(url.DELETE_REVIEW, { headers: { data } });
+// Brands
+export const getBrandsList = () => brandsApi.get(url.GET_BRANDS_LIST, null);
+export const addBrandsList = (data: any) => brandsApi.create(url.ADD_BRANDS_LIST, data);
+export const updateBrandsList = (data: any) => brandsApi.update(url.UPDATE_BRANDS_LIST, data);
+export const deleteBrandsList = (data: any) => brandsApi.delete(url.DELETE_BRANDS_LIST, { headers: { data } });
+
+
+// Country
+export const getCountryList = () => countryApi.get(url.GET_COUNTRYS_LIST, null);
+export const addCountryList = (data: any) => countryApi.create(url.ADD_COUNTRYS_LIST, data);
+export const updateCountryList = (data: any) => countryApi.update(url.UPDATE_COUNTRYS_LIST, data);
+export const deleteCountryList = (data: any) => countryApi.delete(url.DELETE_COUNTRYS_LIST, { headers: { data } });
+
+
+// District
+export const getDistrictList = () => districtApi.get(url.GET_DISTRICT_LIST, null);
+export const addDistrictList = (data: any) => districtApi.create(url.ADD_DISTRICT_LIST, data);
+export const updateDistrictList = (data: any) => districtApi.update(url.UPDATE_DISTRICT_LIST, data);
+export const deleteDistrictList = (data: any) => districtApi.delete(url.DELETE_DISTRICT_LIST, { headers: { data } });
+
+
+// Vendor
+export const getVendorsList = () => vendorApi.get(url.GET_DISTRICT_LIST, null);
+export const addVendorsList = (data: any) => vendorApi.create(url.ADD_DISTRICT_LIST, data);
+export const updateVendorsList = (data: any) => vendorApi.update(url.UPDATE_DISTRICT_LIST, data);
+export const deleteVendorsList = (data: any) => vendorApi.delete(url.DELETE_DISTRICT_LIST, { headers: { data } });
+
+
+// // Grid View
+// export const getProductGrid = () => api.get(url.GET_PRODUCT_GRID, null);
+// export const addProductGrid = (data: any) => api.create(url.ADD_PRODUCT_GRID, data);
+// export const updateProductGrid = (data: any) => api.update(url.UPDATE_PRODUCT_GRID, data);
+// export const deleteProductGrid = (data: any) => api.delete(url.DELETE_PRODUCT_GRID, { headers: { data } });
+
+// // Overview
+// export const getReview = () => api.get(url.GET_REVIEW, null);
+// export const addReview = (data: any) => api.create(url.ADD_REVIEW, data);
+// export const updateReview = (data: any) => api.update(url.UPDATE_REVIEW, data);
+// export const deleteReview = (data: any) => api.delete(url.DELETE_REVIEW, { headers: { data } });
 
 // HR Management
 // Employee List

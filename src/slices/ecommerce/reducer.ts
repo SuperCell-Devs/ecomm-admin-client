@@ -12,21 +12,23 @@ import {
     addProductList,
     updateProductList,
     deleteProductList,
-    getProductGrid,
-    addProductGrid,
-    updateProductGrid,
-    deleteProductGrid,
-    getReview,
-    addReview,
-    updateReview,
-    deleteReview
+    getBrandsList,
+    addBrandsList,
+    deleteBrandsList,
+    updateBrandsList,
+    addCountryList,
+    getCountryList,
+    updateCountryList,
+    deleteCountryList,
+    addVendorsList, getVendorList, deleteVendorsList, updateVendorsList
 } from './thunk';
 
 export const initialState = {
-    orders: [],
+    brands: [],
     sellers: [],
-    productList: [],
-    productGrid: [],
+    products: [],
+    country: [],
+    vendors:[],
     reviews: [],
     errors: {}
 };
@@ -36,19 +38,16 @@ const EcommerceSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
+
         // Orders
         builder.addCase(getOrders.fulfilled, (state: any, action: any) => {
             state.orders = action.payload;
         });
-        builder.addCase(getOrders.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+     
         builder.addCase(addOrders.fulfilled, (state: any, action: any) => {
             state.orders.unshift(action.payload);
         });
-        builder.addCase(addOrders.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+       
         builder.addCase(updateOrders.fulfilled, (state: any, action: any) => {
             state.orders = state.orders.map((orders: any) =>
                 orders.id === action.payload.id
@@ -56,31 +55,23 @@ const EcommerceSlice = createSlice({
                     : orders
             );
         });
-        builder.addCase(updateOrders.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+      
         builder.addCase(deleteOrders.fulfilled, (state: any, action: any) => {
             state.orders = state.orders.filter(
                 (orders: any) => orders.id.toString() !== action.payload.toString()
             );
         });
-        builder.addCase(deleteOrders.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+     
 
         // Sellers
         builder.addCase(getSellers.fulfilled, (state: any, action: any) => {
             state.sellers = action.payload;
         });
-        builder.addCase(getSellers.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+     
         builder.addCase(addSellers.fulfilled, (state: any, action: any) => {
             state.sellers.unshift(action.payload);
         });
-        builder.addCase(addSellers.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+    
         builder.addCase(updateSellers.fulfilled, (state: any, action: any) => {
             state.sellers = state.sellers.map((sellers: any) =>
                 sellers.id === action.payload.id
@@ -88,32 +79,25 @@ const EcommerceSlice = createSlice({
                     : sellers
             );
         });
-        builder.addCase(updateSellers.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+    
         builder.addCase(deleteSellers.fulfilled, (state: any, action: any) => {
             state.sellers = state.sellers.filter(
                 (sellers: any) => sellers.id.toString() !== action.payload.toString()
             );
         });
-        builder.addCase(deleteSellers.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+     
 
         // Products
         // List View
         builder.addCase(getProductList.fulfilled, (state: any, action: any) => {
-            state.productList = action.payload;
+            const updatedResults = [action.payload];
+            state.products = { ...state.products, results: updatedResults };
         });
-        builder.addCase(getProductList.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+
         builder.addCase(addProductList.fulfilled, (state: any, action: any) => {
             state.productList.unshift(action.payload);
         });
-        builder.addCase(addProductList.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+    
         builder.addCase(updateProductList.fulfilled, (state: any, action: any) => {
             state.productList = state.productList.map((productList: any) =>
                 productList.id === action.payload.id
@@ -121,82 +105,115 @@ const EcommerceSlice = createSlice({
                     : productList
             );
         });
-        builder.addCase(updateProductList.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
+        
         builder.addCase(deleteProductList.fulfilled, (state: any, action: any) => {
             state.productList = state.productList.filter(
                 (productList: any) => productList.id.toString() !== action.payload.toString()
             );
         });
-        builder.addCase(deleteProductList.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
+
+        // brands
+        builder.addCase(getBrandsList.fulfilled, (state: any, action: any) => {
+            const updatedResults = [action.payload];
+            state.brands = { ...state.brands, results: updatedResults };
+        });
+        builder.addCase(addBrandsList.fulfilled, (state: any, action: any) => {
+            state.brands.unshift(action.payload);
+        });
+        builder.addCase(updateBrandsList.fulfilled, (state: any, action: any) => {
+            state.brands = state.brands.map((brandList: any) =>
+                    brandList.id === action.payload.id
+                    ? { ...brandList, ...action.payload }
+                    : brandList
+            );
+        });
+        builder.addCase(deleteBrandsList.fulfilled, (state: any, action: any) => {
+            state.brands = state.brands.filter(
+                (brandList: any) => brandList.id.toString() !== action.payload.toString()
+            );
         });
 
-        // Grid View
-        builder.addCase(getProductGrid.fulfilled, (state: any, action: any) => {
-            state.productGrid = action.payload;
+
+        // country
+        builder.addCase(getCountryList.fulfilled, (state: any, action: any) => {
+            const updatedResults = [action.payload];
+            state.country = { ...state.country, results: updatedResults };
         });
-        builder.addCase(getProductGrid.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
+        builder.addCase(addCountryList.fulfilled, (state: any, action: any) => {
+            state.country.unshift(action.payload);
         });
-        builder.addCase(addProductGrid.fulfilled, (state: any, action: any) => {
-            state.productGrid.unshift(action.payload);
-        });
-        builder.addCase(addProductGrid.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
-        builder.addCase(updateProductGrid.fulfilled, (state: any, action: any) => {
-            state.productGrid = state.productGrid.map((productGrid: any) =>
-                productGrid.id === action.payload.id
-                    ? { ...productGrid, ...action.payload }
-                    : productGrid
+        builder.addCase(updateCountryList.fulfilled, (state: any, action: any) => {
+            state.country = state.country.map((countryList: any) =>
+                countryList.id === action.payload.id
+                    ? { ...countryList, ...action.payload }
+                    : countryList
             );
         });
-        builder.addCase(updateProductGrid.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
-        builder.addCase(deleteProductGrid.fulfilled, (state: any, action: any) => {
-            state.productGrid = state.productGrid.filter(
-                (productGrid: any) => productGrid.id.toString() !== action.payload.toString()
+        builder.addCase(deleteBrandsList.fulfilled, (state: any, action: any) => {
+            state.country = state.country.filter(
+                (countryList: any) => countryList.id.toString() !== action.payload.toString()
             );
-        });
-        builder.addCase(deleteProductGrid.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
         });
 
-        // Overview
-        builder.addCase(getReview.fulfilled, (state: any, action: any) => {
-            state.reviews = action.payload;
+
+        // Vendors
+        builder.addCase(getVendorList.fulfilled, (state: any, action: any) => {
+            const updatedResults = [action.payload];
+            state.vendors = { ...state.vendors, results: updatedResults };
         });
-        builder.addCase(getReview.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
+        builder.addCase(addVendorsList.fulfilled, (state: any, action: any) => {
+            state.vendors.unshift(action.payload);
         });
-        builder.addCase(addReview.fulfilled, (state: any, action: any) => {
-            state.reviews.unshift(action.payload);
-        });
-        builder.addCase(addReview.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
-        builder.addCase(updateReview.fulfilled, (state: any, action: any) => {
-            state.reviews = state.reviews.map((reviews: any) =>
-                reviews.id === action.payload.id
-                    ? { ...reviews, ...action.payload }
-                    : reviews
+        builder.addCase(updateVendorsList.fulfilled, (state: any, action: any) => {
+            state.vendors = state.vendors.map((vendorsList: any) =>
+                    vendorsList.id === action.payload.id
+                    ? { ...vendorsList, ...action.payload }
+                    : vendorsList
             );
         });
-        builder.addCase(updateReview.rejected, (state: any, action: any) => {
-            state.error = action.payload.error || null;
-        });
-        builder.addCase(deleteReview.fulfilled, (state: any, action: any) => {
-            state.reviews = state.reviews.filter(
-                (reviews: any) => reviews.id.toString() !== action.payload.toString()
+        builder.addCase(deleteVendorsList.fulfilled, (state: any, action: any) => {
+            state.vendors = state.vendors.filter(
+                (vendorsListList: any) => vendorsListList.id.toString() !== action.payload.toString()
             );
         });
-        builder.addCase(deleteReview.rejected, (state: any, action: any) => {
+
+
+        // Error handling
+        builder.addMatcher(
+            (action) => {
+            return [
+                getOrders.rejected,
+                addOrders.rejected,
+                updateOrders.rejected,
+                deleteOrders.rejected,
+                getSellers.rejected,
+                addSellers.rejected,
+                updateSellers.rejected,
+                deleteSellers.rejected,
+                getProductList.rejected,
+                addProductList.rejected,
+                updateProductList.rejected,
+                deleteProductList.rejected,
+                getBrandsList.rejected,
+                updateBrandsList.rejected,
+                deleteBrandsList.rejected,
+                addBrandsList.rejected,
+                getCountryList.rejected,
+                updateCountryList.rejected,
+                addCountryList.rejected,
+                deleteCountryList.rejected,
+                addVendorsList.rejected,
+                getVendorList.rejected,
+                updateVendorsList.rejected,
+                deleteVendorsList.rejected
+            ].includes(action.type);
+            },
+            (state: any, action: any) => {
             state.error = action.payload.error || null;
-        });
+            }
+        );
     }
+    
 });
 
 export default EcommerceSlice.reducer;

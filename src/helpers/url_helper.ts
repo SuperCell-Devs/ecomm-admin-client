@@ -50,16 +50,35 @@ export const DELETE_SELLERS = "/delete-sellers";
 
 // Products
 // List View
-export const GET_PRODUCT_LIST = "/get-product-list";
-export const ADD_PRODUCT_LIST = "/add-product-list";
-export const UPDATE_PRODUCT_LIST = "/edit-product-list";
-export const DELETE_PRODUCT_LIST = "/delete-product-list";
+export const GET_PRODUCT_LIST = "/Products";
+export const ADD_PRODUCT_LIST = "/Products";
+export const UPDATE_PRODUCT_LIST = "/Products";
+export const DELETE_PRODUCT_LIST = "/Products";
 
-// Grid View
-export const GET_PRODUCT_GRID = "/get-product-grid";
-export const ADD_PRODUCT_GRID = "/add-product-grid";
-export const UPDATE_PRODUCT_GRID = "/edit-product-grid";
-export const DELETE_PRODUCT_GRID = "/delete-product-grid";
+// Brands
+export const GET_BRANDS_LIST = "/Brands";
+export const ADD_BRANDS_LIST = "/Brands";
+export const UPDATE_BRANDS_LIST = "/Brands";
+export const DELETE_BRANDS_LIST = "/Brands";
+
+// Country
+export const GET_COUNTRYS_LIST = "/Countrys";
+export const ADD_COUNTRYS_LIST = "/Countrys";
+export const UPDATE_COUNTRYS_LIST = "/Countrys";
+export const DELETE_COUNTRYS_LIST = "/Countrys";
+
+// Districts
+export const GET_DISTRICT_LIST = "/Districts";
+export const ADD_DISTRICT_LIST = "/Districts";
+export const UPDATE_DISTRICT_LIST = "/Districts";
+export const DELETE_DISTRICT_LIST = "/Districts";
+
+
+// // Grid View
+// export const GET_PRODUCT_GRID = "/get-product-grid";
+// export const ADD_PRODUCT_GRID = "/add-product-grid";
+// export const UPDATE_PRODUCT_GRID = "/edit-product-grid";
+// export const DELETE_PRODUCT_GRID = "/delete-product-grid";
 
 // Overview
 export const GET_REVIEW = "/get-review";

@@ -15,13 +15,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import {
-    getProductList as onGetProductList,
-    deleteProductList as onDeleteProductList
+    getProductList as onGetDistrictsList,
+    deleteProductList as onDeleteDistrictList
 } from 'slices/thunk';
 import { ToastContainer } from "react-toastify";
 import filterDataBySearch from "Common/filterDataBySearch";
 
-const ListView = () => {
+const DistrictListView = () => {
 
     const dispatch = useDispatch<any>();
 
@@ -39,7 +39,7 @@ const ListView = () => {
 
     // Get Data
     useEffect(() => {
-        dispatch(onGetProductList());
+        dispatch(onGetDistrictsList());
     }, [dispatch]);
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const ListView = () => {
 
     const handleDelete = () => {
         if (eventData) {
-            dispatch(onDeleteProductList(eventData.id));
+            dispatch(onDeleteDistrictList(eventData.id));
             setDeleteModal(false);
         }
     };
@@ -230,4 +230,4 @@ const ListView = () => {
     );
 };
 
-export default ListView;;
+export default DistrictListView;
