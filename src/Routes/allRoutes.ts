@@ -18,8 +18,8 @@ import MultiMonthStack from "pages/Calendar/MultiMonthStack";
 
 // Ecommerce
 import ListView from "pages/Ecommerce/Products/ListView";
-import GridView from "pages/Ecommerce/Products/GridView";
-import Overview from "pages/Ecommerce/Products/Overview";
+// import GridView from "pages/Ecommerce/Products/GridView";
+// import Overview from "pages/Ecommerce/Products/Overview";
 import AddNew from "pages/Ecommerce/Products/AddNew";
 import ShoppingCart from "pages/Ecommerce/ShoppingCart";
 import Checkout from "pages/Ecommerce/Checkout";
@@ -200,7 +200,7 @@ import ContactUs from "pages/Pages/ContactUs";
 import ProductsAddNew from "Common/platform/products/add";
 import ProductsEdit from "Common/platform/products/edit";
 import ProductsListView from "Common/platform/products";
-import ProductsOverview from "Common/platform/products/overview";
+// import ProductsOverview from "Common/platform/products/overview";
 
 // Import vendor views
 import VendorAddNew from "Common/platform/vendors/add";
@@ -242,7 +242,7 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/products", component: ProductsListView },
   { path: "/products-add", component: ProductsAddNew },
   { path: "/products-edit", component: ProductsEdit },
-  { path: "/products/overview/", component: ProductsOverview },
+  // { path: "/products/overview/", component: ProductsOverview },
 
   // country
   { path: "/country", component: CountryListView },
@@ -256,14 +256,14 @@ const authProtectedRoutes: Array<RouteObject> = [
   
 
   // brand
-  { path: "/brand", component: BrandListView },
-  { path: "/brand-add", component: BrandAddNew },
-  { path: "/brand-edit", component: BrandEdit },
+  { path: "/brands", component: BrandListView },
+  { path: "/brands-add", component: BrandAddNew },
+  { path: "/brands-edit", component: BrandEdit },
 
   // vendor
-  { path: "/vendor", component: VendorListView },
-  { path: "/vendor-add", component: VendorAddNew },
-  { path: "/vendor-edit", component: VendorEdit },
+  { path: "/vendors", component: VendorListView },
+  { path: "/vendors-add", component: VendorAddNew },
+  { path: "/vendors-edit", component: VendorEdit },
 
 
 
@@ -373,8 +373,8 @@ const authProtectedRoutes: Array<RouteObject> = [
 
   // Ecommerce
   { path: "/apps-ecommerce-product-list", component: ListView },
-  { path: "/apps-ecommerce-product-grid", component: GridView },
-  { path: "/apps-ecommerce-product-overview", component: Overview },
+  // { path: "/apps-ecommerce-product-grid", component: GridView },
+  // { path: "/apps-ecommerce-product-overview", component: Overview },
   { path: "/apps-ecommerce-product-create", component: AddNew },
   { path: "/apps-ecommerce-cart", component: ShoppingCart },
   { path: "/apps-ecommerce-checkout", component: Checkout },

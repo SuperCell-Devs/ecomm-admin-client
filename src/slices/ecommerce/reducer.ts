@@ -114,8 +114,8 @@ const EcommerceSlice = createSlice({
 
         // brands
         builder.addCase(getBrandsList.fulfilled, (state: any, action: any) => {
-            const updatedResults = [action.payload];
-            state.brands = { ...state.brands, results: updatedResults };
+            const updatedResults = action.payload;
+            state.brands = { ...state.brands, ...updatedResults };
         });
         builder.addCase(addBrandsList.fulfilled, (state: any, action: any) => {
             state.brands.unshift(action.payload);
@@ -149,7 +149,7 @@ const EcommerceSlice = createSlice({
                     : countryList
             );
         });
-        builder.addCase(deleteBrandsList.fulfilled, (state: any, action: any) => {
+        builder.addCase(deleteCountryList.fulfilled, (state: any, action: any) => {
             state.country = state.country.filter(
                 (countryList: any) => countryList.id.toString() !== action.payload.toString()
             );

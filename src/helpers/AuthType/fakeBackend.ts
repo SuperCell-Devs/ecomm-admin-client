@@ -586,58 +586,58 @@ const fakeBackend = () => {
     });
   });
 
-  // Grid View
-  mock.onGet(url.GET_PRODUCT_GRID).reply(() => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (ProductGridViewData) {
-          // Passing fake JSON data as response
-          resolve([200, ProductGridViewData]);
-        } else {
-          reject([400, "cannot get data"]);
-        }
-      });
-    });
-  });
+  // // Grid View
+  // mock.onGet(url.GET_PRODUCT_GRID).reply(() => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (ProductGridViewData) {
+  //         // Passing fake JSON data as response
+  //         resolve([200, ProductGridViewData]);
+  //       } else {
+  //         reject([400, "cannot get data"]);
+  //       }
+  //     });
+  //   });
+  // });
 
-  mock.onPost(url.ADD_PRODUCT_GRID).reply((event: any) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (event && event.data) {
-          // Passing fake JSON data as response
-          resolve([200, event.data]);
-        } else {
-          reject([400, "cannot add data"]);
-        }
-      });
-    });
-  });
+  // mock.onPost(url.ADD_PRODUCT_GRID).reply((event: any) => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (event && event.data) {
+  //         // Passing fake JSON data as response
+  //         resolve([200, event.data]);
+  //       } else {
+  //         reject([400, "cannot add data"]);
+  //       }
+  //     });
+  //   });
+  // });
 
-  mock.onPatch(url.UPDATE_PRODUCT_GRID).reply((event: any) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (event && event.data) {
-          // Passing fake JSON data as response
-          resolve([200, event.data]);
-        } else {
-          reject([400, "cannot update data"]);
-        }
-      });
-    });
-  });
+  // mock.onPatch(url.UPDATE_PRODUCT_GRID).reply((event: any) => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (event && event.data) {
+  //         // Passing fake JSON data as response
+  //         resolve([200, event.data]);
+  //       } else {
+  //         reject([400, "cannot update data"]);
+  //       }
+  //     });
+  //   });
+  // });
 
-  mock.onDelete(url.DELETE_PRODUCT_GRID).reply((config: any) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (config && config.headers) {
-          // Passing fake JSON data as response
-          resolve([200, config.headers.data]);
-        } else {
-          reject([400, "cannot delete data"]);
-        }
-      });
-    });
-  });
+  // mock.onDelete(url.DELETE_PRODUCT_GRID).reply((config: any) => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (config && config.headers) {
+  //         // Passing fake JSON data as response
+  //         resolve([200, config.headers.data]);
+  //       } else {
+  //         reject([400, "cannot delete data"]);
+  //       }
+  //     });
+  //   });
+  // });
 
   // OverView
   mock.onGet(url.GET_REVIEW).reply(() => {

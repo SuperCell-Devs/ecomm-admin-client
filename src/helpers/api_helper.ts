@@ -1,4 +1,5 @@
 import axios from "axios";
+import { IBrand, Paginated } from "./interface/api";
 // import { api } from "../config";
 
 axios.defaults.baseURL = "http://10.77.77.242/api/v1/";
@@ -29,12 +30,15 @@ axios.interceptors.response.use(
       case 404:
         message = "Sorry! the data you are looking for could not be found";
         break;
+      //  handle case 400 (.NET errors)
       default:
         message = error.message || error;
     }
     return Promise.reject(message);
   }
 );
+
+
 /**
  * Sets the default authorization
  * @param {*} token
@@ -153,8 +157,8 @@ export class BrandsApi {
     //  get = (url, params) => {
     //   return axios.get(url, params);
     // };
-    get = (url: any, params: any) => {
-      let response;
+    get = async (url: any, params?: any) => {
+      let response: Paginated<IBrand>;
 
       let paramKeys: any = [];
 
@@ -165,9 +169,9 @@ export class BrandsApi {
         });
 
         const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
-        response = axios.get(`${url}?${queryString}`, params);
+        response = await axios.get(`${url}?${queryString}`, params);
       } else {
-        response = axios.get(`${url}`, params);
+        response = await axios.get(`${url}`, params);
       }
 
       return response;

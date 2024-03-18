@@ -33,6 +33,7 @@ import {
 } from "../../helpers/fakebackend_helper";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { IGetAllBrandsProps } from "helpers/interface/api";
 
 export const getOrders = createAsyncThunk("ecommerce/getOrders", async () => {
     try {
@@ -163,9 +164,9 @@ export const deleteProductList = createAsyncThunk("ecommerce/deleteProductList",
 
 // Brands
 
-export const getBrandsList = createAsyncThunk("ecommerce/getBrandsList", async () => {
+export const getBrandsList = createAsyncThunk("ecommerce/getBrandsList", async (props? : IGetAllBrandsProps) => {
     try {
-        const response = getBrandsListApi();
+        const response = await getBrandsListApi(props);
         return response;
     } catch (error) {
         return error;

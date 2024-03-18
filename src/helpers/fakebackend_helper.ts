@@ -1,4 +1,5 @@
 import { APIClient, BrandsApi, CountryApi, DistrictApi, ProductsApi, VendorsApi } from "./api_helper";
+import { IBrand, IGetAllBrandsProps, Paginated } from "./interface/api";
 
 import * as url from "./url_helper";
 
@@ -116,7 +117,7 @@ export const deleteProductList = (data: any) => productsApi.delete(url.DELETE_PR
 
 
 // Brands
-export const getBrandsList = () => brandsApi.get(url.GET_BRANDS_LIST, null);
+export const getBrandsList = (props? : IGetAllBrandsProps) => brandsApi.get(url.GET_BRANDS_LIST, props);
 export const addBrandsList = (data: any) => brandsApi.create(url.ADD_BRANDS_LIST, data);
 export const updateBrandsList = (data: any) => brandsApi.update(url.UPDATE_BRANDS_LIST, data);
 export const deleteBrandsList = (data: any) => brandsApi.delete(url.DELETE_BRANDS_LIST, { headers: { data } });
