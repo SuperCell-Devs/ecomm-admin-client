@@ -8,7 +8,7 @@ import { Dropdown } from "Common/Components/Dropdown";
 import { MoreHorizontal, Eye, FileEdit, Trash2, Search, Plus } from 'lucide-react';
 
 import TableContainer from "Common/TableContainer";
-import DeleteModal from "Common/DeleteModal";
+// import DeleteModal from "Common/DeleteModal";
 
 // react-redux
 import { useDispatch, useSelector } from 'react-redux';
