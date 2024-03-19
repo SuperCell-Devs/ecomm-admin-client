@@ -1,4 +1,4 @@
-import { Award, MapIcon, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound } from "lucide-react";
+import { Award, MapIcon, MapPinIcon, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound } from "lucide-react";
 
 const menuData: any = [
     {
@@ -32,6 +32,13 @@ const menuData: any = [
         label: 'Country',
         icon: <MapIcon />,
         link: '/country',
+        parentId: 2
+    },
+    {
+        id: 'districts',
+        label: 'Districts',
+        icon: <MapPinIcon />,
+        link: '/district',
         parentId: 2
     },
 

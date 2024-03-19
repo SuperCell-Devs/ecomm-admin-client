@@ -1,5 +1,5 @@
 import { APIClient, BrandsApi, CountryApi, DistrictApi, ProductsApi, VendorsApi } from "./api_helper";
-import { IBrand, IGetAllBrandsProps, Paginated } from "./interface/api";
+import { IBrand, IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IPostBrand, IPostDistrict, IPutCountry, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps, Paginated } from "./interface/api";
 
 import * as url from "./url_helper";
 
@@ -118,22 +118,25 @@ export const deleteProductList = (data: any) => productsApi.delete(url.DELETE_PR
 
 // Brands
 export const getBrandsList = (props? : IGetAllBrandsProps) => brandsApi.get(url.GET_BRANDS_LIST, props);
-export const addBrandsList = (data: any) => brandsApi.create(url.ADD_BRANDS_LIST, data);
-export const updateBrandsList = (data: any) => brandsApi.update(url.UPDATE_BRANDS_LIST, data);
+export const getOneBrand = (props: IGetOneBrandProps) => brandsApi.get(`${url.GET_BRANDS_LIST}/${props.id}`);
+export const addBrandsList = (data: IPostBrand) => brandsApi.create(url.ADD_BRANDS_LIST, data);
+export const updateBrandsList = (body: IUpdateBrandProps) => brandsApi.put(`${url.UPDATE_BRANDS_LIST}/${body.id}`, body.data);
 export const deleteBrandsList = (data: any) => brandsApi.delete(url.DELETE_BRANDS_LIST, { headers: { data } });
 
 
 // Country
-export const getCountryList = () => countryApi.get(url.GET_COUNTRYS_LIST, null);
+export const getCountryList = (props?: IGetAllCountryProps) => countryApi.get(url.GET_COUNTRYS_LIST, props);
+export const getOneCountry = (props: IGetOneCountryProps) => countryApi.get(`${url.GET_COUNTRYS_LIST}/${props.id}`, null);
 export const addCountryList = (data: any) => countryApi.create(url.ADD_COUNTRYS_LIST, data);
-export const updateCountryList = (data: any) => countryApi.update(url.UPDATE_COUNTRYS_LIST, data);
+export const updateCountryList = (props: IUpdateCountryProps) => countryApi.put(`${url.UPDATE_COUNTRYS_LIST}/${props.id}`, props.data);
 export const deleteCountryList = (data: any) => countryApi.delete(url.DELETE_COUNTRYS_LIST, { headers: { data } });
 
 
 // District
-export const getDistrictList = () => districtApi.get(url.GET_DISTRICT_LIST, null);
-export const addDistrictList = (data: any) => districtApi.create(url.ADD_DISTRICT_LIST, data);
-export const updateDistrictList = (data: any) => districtApi.update(url.UPDATE_DISTRICT_LIST, data);
+export const getDistrictList = (props?: IGetAllDistrictProps) => districtApi.get(url.GET_DISTRICT_LIST, props);
+export const getOneDistrict = (props: IGetOneDistrictProps) => districtApi.get(`${url.GET_DISTRICT_LIST}/${props.id}`, props)
+export const addDistrictList = (data: IPostDistrict) => districtApi.create(url.ADD_DISTRICT_LIST, data);
+export const updateDistrictList = (props: IUpdateDistrictProps) => districtApi.update(`${url.UPDATE_DISTRICT_LIST}/${props.id}`, props.data);
 export const deleteDistrictList = (data: any) => districtApi.delete(url.DELETE_DISTRICT_LIST, { headers: { data } });
 
 

@@ -15,13 +15,16 @@ import {
     deleteProductList as deleteProductListApi,
     addBrandsList as addBrandsListApi,
     getBrandsList as getBrandsListApi, 
+    getOneBrand as getOneBrandApi,
     deleteBrandsList as deleteBrandsListApi,
     updateBrandsList as updateBrandsListApi,
     addCountryList as addCountryListApi,
     getCountryList as getCountryListApi,
+    getOneCountry as getOneCountryApi,
     updateCountryList as updateCountryListApi,
     deleteCountryList as deleteCountryListApi,
     getDistrictList as getDistrictListApi,
+    getOneDistrict as getOneDistrictApi, 
     addDistrictList as addDistrictListApi,
     updateDistrictList as updateDistrictListApi,
     deleteDistrictList as deleteDistrictListApi,
@@ -33,7 +36,7 @@ import {
 } from "../../helpers/fakebackend_helper";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { IGetAllBrandsProps } from "helpers/interface/api";
+import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IUpdateCountryProps } from "helpers/interface/api";
 
 export const getOrders = createAsyncThunk("ecommerce/getOrders", async () => {
     try {
@@ -163,7 +166,6 @@ export const deleteProductList = createAsyncThunk("ecommerce/deleteProductList",
 
 
 // Brands
-
 export const getBrandsList = createAsyncThunk("ecommerce/getBrandsList", async (props? : IGetAllBrandsProps) => {
     try {
         const response = await getBrandsListApi(props);
@@ -172,10 +174,18 @@ export const getBrandsList = createAsyncThunk("ecommerce/getBrandsList", async (
         return error;
     }
 });
+export const getOneBrand = createAsyncThunk("ecommerce/getOneBrand", async (props : IGetOneBrandProps) => {
+    try {
+        const response = await getOneBrandApi(props);
+        return response;
+    } catch (error) {
+        return error;
+    }
+});
 export const addBrandsList = createAsyncThunk("ecommerce/addBrandsList", async (event: any) => {
     try {
-        const response = addBrandsListApi(event);
-        const data = await response;
+        const response = await addBrandsListApi(event);
+        const data = response;
         toast.success("Data Added Successfully", { autoClose: 2000 });
         return data;
     } catch (error) {
@@ -185,8 +195,8 @@ export const addBrandsList = createAsyncThunk("ecommerce/addBrandsList", async (
 });
 export const updateBrandsList = createAsyncThunk("ecommerce/updateBrandsList", async (event: any) => {
     try {
-        const response = updateBrandsListApi(event);
-        const data = await response;
+        const response = await updateBrandsListApi(event);
+        const data = response;
         toast.success("Data updated Successfully", { autoClose: 2000 });
         return data;
     } catch (error) {
@@ -206,14 +216,24 @@ export const deleteBrandsList = createAsyncThunk("ecommerce/deleteBrandsList", a
 });
 
 // Country
-export const getCountryList = createAsyncThunk("ecommerce/getCountryList", async () => {
+export const getCountryList = createAsyncThunk("ecommerce/getCountryList", async (event?: IGetAllCountryProps) => {
     try {
-        const response = getCountryListApi();
+        const response = getCountryListApi(event);
         return response;
     } catch (error) {
         return error;
     }
 });
+
+export const getOneCountry = createAsyncThunk("ecommerce/getOneCountry", async (props : IGetOneCountryProps) => {
+    try {
+        const response = await getOneCountryApi(props);
+        return response;
+    } catch (error) {
+        return error;
+    }
+});
+
 export const addCountryList = createAsyncThunk("ecommerce/addCountryList", async (event: any) => {
     try {
         const response = addCountryListApi(event);
@@ -225,7 +245,7 @@ export const addCountryList = createAsyncThunk("ecommerce/addCountryList", async
         return error;
     }
 });
-export const updateCountryList = createAsyncThunk("ecommerce/updateCountryList", async (event: any) => {
+export const updateCountryList = createAsyncThunk("ecommerce/updateCountryList", async (event: IUpdateCountryProps) => {
     try {
         const response = updateCountryListApi(event);
         const data = await response;
@@ -248,9 +268,18 @@ export const deleteCountryList = createAsyncThunk("ecommerce/deleteCountryList",
 });
 
 // District
-export const getDistrictList = createAsyncThunk("ecommerce/getDistrictList", async () => {
+export const getDistrictList = createAsyncThunk("ecommerce/getDistrictList", async (event?: IGetAllDistrictProps) => {
     try {
-        const response = getDistrictListApi();
+        const response = getDistrictListApi(event);
+        return response;
+    } catch (error) {
+        return error;
+    }
+});
+
+export const getOneDistrict = createAsyncThunk("ecommerce/getOneDistrict", async (event: IGetOneDistrictProps) => {
+    try {
+        const response = getOneDistrictApi(event);
         return response;
     } catch (error) {
         return error;

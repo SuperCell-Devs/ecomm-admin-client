@@ -20,13 +20,24 @@ import {
     getCountryList,
     updateCountryList,
     deleteCountryList,
-    addVendorsList, getVendorList, deleteVendorsList, updateVendorsList
+    addVendorsList,
+    getVendorList, 
+    deleteVendorsList, 
+    updateVendorsList,
+    getOneBrand,
+    getOneCountry,
+    addDistrictList,
+    getDistrictList,
+    updateDistrictList,
+    deleteDistrictList,
+    getOneDistrict
 } from './thunk';
 
 export const initialState = {
     brands: [],
     sellers: [],
     products: [],
+    districts: [],
     country: [],
     vendors:[],
     reviews: [],
@@ -114,47 +125,62 @@ const EcommerceSlice = createSlice({
 
         // brands
         builder.addCase(getBrandsList.fulfilled, (state: any, action: any) => {
-            const updatedResults = action.payload;
-            state.brands = { ...state.brands, ...updatedResults };
+            state.brands = action.payload;
         });
+        
+        builder.addCase(getOneBrand.fulfilled, (state: any, action: any) => {
+            state.brands = { ...state.brands, results: action.payload };
+        });
+        
         builder.addCase(addBrandsList.fulfilled, (state: any, action: any) => {
-            state.brands.unshift(action.payload);
+            state.brands = {...state.brands, result: action.payload}
         });
+        
         builder.addCase(updateBrandsList.fulfilled, (state: any, action: any) => {
-            state.brands = state.brands.map((brandList: any) =>
-                    brandList.id === action.payload.id
-                    ? { ...brandList, ...action.payload }
-                    : brandList
-            );
+            state.brands = { ...state.brands, results: action.payload }
         });
-        builder.addCase(deleteBrandsList.fulfilled, (state: any, action: any) => {
-            state.brands = state.brands.filter(
-                (brandList: any) => brandList.id.toString() !== action.payload.toString()
-            );
-        });
-
+        
+        // builder.addCase(deleteBrandsList.fulfilled, (state: any, action: any) => {
+        //     state.brands = state.brands.results.filter((brandList: any) =>
+        //         brandList.id.toString() !== action.payload.toString()
+        //     );
+        // });
 
         // country
         builder.addCase(getCountryList.fulfilled, (state: any, action: any) => {
-            const updatedResults = [action.payload];
-            state.country = { ...state.country, results: updatedResults };
+            state.country = action.payload;
         });
+        
+        builder.addCase(getOneCountry.fulfilled, (state: any, action: any) => {
+            state.country = { ...state.country, results: action.payload };
+        });
+        
         builder.addCase(addCountryList.fulfilled, (state: any, action: any) => {
-            state.country.unshift(action.payload);
+            state.country = {...state.country, result: action.payload}
         });
+        
         builder.addCase(updateCountryList.fulfilled, (state: any, action: any) => {
-            state.country = state.country.map((countryList: any) =>
-                countryList.id === action.payload.id
-                    ? { ...countryList, ...action.payload }
-                    : countryList
-            );
+            state.country = { ...state.country, results: action.payload }
         });
-        builder.addCase(deleteCountryList.fulfilled, (state: any, action: any) => {
-            state.country = state.country.filter(
-                (countryList: any) => countryList.id.toString() !== action.payload.toString()
-            );
-        });
+        
 
+                // districts
+        builder.addCase(getDistrictList.fulfilled, (state: any, action: any) => {
+            state.districts = action.payload;
+        });
+        
+        builder.addCase(getOneDistrict.fulfilled, (state: any, action: any) => {
+            state.districts = { ...state.districts, results: action.payload };
+        });
+        
+        builder.addCase(addDistrictList.fulfilled, (state: any, action: any) => {
+            state.districts = {...state.districts, result: action.payload}
+        });
+        
+        builder.addCase(updateDistrictList.fulfilled, (state: any, action: any) => {
+            state.districts = { ...state.districts, results: action.payload }
+        });
+                
 
         // Vendors
         builder.addCase(getVendorList.fulfilled, (state: any, action: any) => {
@@ -205,7 +231,14 @@ const EcommerceSlice = createSlice({
                 addVendorsList.rejected,
                 getVendorList.rejected,
                 updateVendorsList.rejected,
-                deleteVendorsList.rejected
+                deleteVendorsList.rejected,
+                getOneBrand.rejected,
+                getOneDistrict.rejected,
+                addDistrictList.rejected,
+                getDistrictList.rejected,
+                updateDistrictList.rejected,
+                deleteDistrictList.rejected,
+                
             ].includes(action.type);
             },
             (state: any, action: any) => {

@@ -241,29 +241,29 @@ const authProtectedRoutes: Array<RouteObject> = [
   // Products
   { path: "/products", component: ProductsListView },
   { path: "/products-add", component: ProductsAddNew },
-  { path: "/products-edit", component: ProductsEdit },
+  { path: "/products-edit/:id", component: ProductsEdit },
   // { path: "/products/overview/", component: ProductsOverview },
 
   // country
   { path: "/country", component: CountryListView },
   { path: "/country-add", component: CountryAddNew },
-  { path: "/country-edit", component: CountryEdit },
+  { path: "/country-edit/:id", component: CountryEdit },
 
   // districts
   { path: "/district", component: DistrictListView },
   { path: "/district-add", component: DistrictAddNew },
-  { path: "/district-edit", component: DistrictEdit },
+  { path: "/district-edit/:id", component: DistrictEdit },
   
 
   // brand
   { path: "/brands", component: BrandListView },
   { path: "/brands-add", component: BrandAddNew },
-  { path: "/brands-edit", component: BrandEdit },
+  { path: "/brands-edit/:id", component: BrandEdit },
 
   // vendor
   { path: "/vendors", component: VendorListView },
   { path: "/vendors-add", component: VendorAddNew },
-  { path: "/vendors-edit", component: VendorEdit },
+  { path: "/vendors-edit/:id", component: VendorEdit },
 
 
 

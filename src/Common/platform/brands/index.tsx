@@ -20,7 +20,6 @@ import {
     getBrandsList as onGetBrandsList,
     // deleteBrandsList as onDeleteBrnadsList
 } from 'slices/thunk';
-import { ToastContainer } from "react-toastify";
 // import filterDataBySearch from "Common/filterDataBySearch";
 import { IBrand, Paginated } from "helpers/interface/api";
 
@@ -123,29 +122,33 @@ const BrandListView = () => {
         },
         {
             header: "Action",
+            accessorKey: "id",
             enableColumnFilter: false,
             enableSorting: false,
-            cell: (cell: any) => (
-                <Dropdown className="relative dropdown">
-                    <Dropdown.Trigger className="flex items-center justify-center size-[30px] dropdown-toggle p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="productAction1" data-bs-toggle="dropdown">
-                        <MoreHorizontal className="size-3" />
-                    </Dropdown.Trigger>
-                    <Dropdown.Content placement={cell.row.index ? "top-end" : "right-end"} className="absolute z-50 py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600" aria-labelledby="productAction1">
-                        <li>
-                            <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="/apps-ecommerce-product-overview"><Eye className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Overview</span></Link>
-                        </li>
-                        <li>
-                            <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="/products-edit"><FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
-                        </li>
-                        {/* <li>
-                            <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!" onClick={() => {
-                                const data = cell.row.original;
-                                onClickDelete(data);
-                            }}><Trash2 className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Delete</span></Link>
-                        </li> */}
-                    </Dropdown.Content>
-                </Dropdown>
-            ),
+            cell: (cell: any) => {
+                
+                return (
+                    <Dropdown className="relative dropdown">
+                        <Dropdown.Trigger className="flex items-center justify-center size-[30px] dropdown-toggle p-0 text-slate-500 btn bg-slate-100 hover:text-white hover:bg-slate-600 focus:text-white focus:bg-slate-600 focus:ring focus:ring-slate-100 active:text-white active:bg-slate-600 active:ring active:ring-slate-100 dark:bg-slate-500/20 dark:text-slate-400 dark:hover:bg-slate-500 dark:hover:text-white dark:focus:bg-slate-500 dark:focus:text-white dark:active:bg-slate-500 dark:active:text-white dark:ring-slate-400/20" id="productAction1" data-bs-toggle="dropdown">
+                            <MoreHorizontal className="size-3" />
+                        </Dropdown.Trigger>
+                        <Dropdown.Content placement={cell.row.index ? "top-end" : "right-end"} className="absolute z-50 py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600" aria-labelledby="productAction1">
+                            <li>
+                                <Link 
+                                className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 
+                                focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 
+                                dark:focus:bg-zink-500 dark:focus:text-zink-200" to={`/brands-edit/${cell.getValue()}`}><FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
+                            </li>
+                            {/* <li>
+                                <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!" onClick={() => {
+                                    const data = cell.row.original;
+                                    onClickDelete(data);
+                                }}><Trash2 className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Delete</span></Link>
+                            </li> */}
+                        </Dropdown.Content>
+                    </Dropdown>
+                )
+            },
         }
     ], []
     );
@@ -155,7 +158,6 @@ const BrandListView = () => {
         <React.Fragment>
             <BreadCrumb title='Brands' pageTitle='Dashboard' />
             {/* <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} /> */}
-            <ToastContainer closeButton={false} limit={1} />
             <div className="card" id="productListTable">
                 <div className="card-body">
                     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-12">
@@ -171,7 +173,9 @@ const BrandListView = () => {
                                     placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                 placeholder="Search for ..."
                                 autoComplete="off"
-                                onChange={handleDataSearch} />
+                                onChange={handleDataSearch} 
+                                value={search}
+                                />
 
                                 <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
                             </div>
