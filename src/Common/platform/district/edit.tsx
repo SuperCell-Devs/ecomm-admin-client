@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from "react";
 import BreadCrumb from "Common/BreadCrumb";
 // Formik
@@ -58,7 +59,7 @@ const DistrictEdit = () => {
         if(id){
             dispatch(onGetOneDistrict({ id: parseInt(id) }));
         }
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     useEffect(() => {     
         setData(dataList);

@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import BreadCrumb from "Common/BreadCrumb";
 import { SketchPicker, TwitterPicker, ChromePicker, CompactPicker, SwatchesPicker, CirclePicker, GithubPicker, HuePicker } from "react-color";
 
@@ -21,7 +22,7 @@ const FormColorPicker: React.FC = () => {
     });
     const [hueColor, setHueColor] = useState<{ r: number; g: number; b: number }>({ r: 255, g: 138, b: 101 });
 
-    const contentRefs = [useRef<any>(null), useRef<any>(null), useRef<any>(null), useRef<any>(null), useRef<any>(null), useRef<any>(null), useRef<any>(null)];
+    const contentRefs = useMemo(() => [useRef<any>(null), useRef<any>(null), useRef<any>(null), useRef<any>(null), useRef<any>(null), useRef<any>(null), useRef<any>(null)], []);
     const [displayColorPickers, setDisplayColorPickers] = useState<boolean[]>(Array(contentRefs.length).fill(false));
 
 
@@ -75,15 +76,7 @@ const FormColorPicker: React.FC = () => {
         background: `rgba(${hueColor.r}, ${hueColor.g}, ${hueColor.b})`,
     };
 
-    const handleOutsideClick = (event: MouseEvent, index: number) => {
-        if (contentRefs[index].current && !contentRefs[index].current.contains(event.target as Node)) {
-            setDisplayColorPickers((prev) => {
-                const updatedDisplay = [...prev];
-                updatedDisplay[index] = false;
-                return updatedDisplay;
-            });
-        }
-    };
+
 
     const handlePickerToggle = (index: number) => {
         setDisplayColorPickers((prev) =>
@@ -92,6 +85,16 @@ const FormColorPicker: React.FC = () => {
     };
 
     useEffect(() => {
+
+        const handleOutsideClick = (event: MouseEvent, index: number) => {
+            if (contentRefs[index].current && !contentRefs[index].current.contains(event.target as Node)) {
+                setDisplayColorPickers((prev) => {
+                    const updatedDisplay = [...prev];
+                    updatedDisplay[index] = false;
+                    return updatedDisplay;
+                });
+            }
+        };
         const eventListeners: Array<() => void> = [];
 
         contentRefs.forEach((ref, index) => {
@@ -103,7 +106,7 @@ const FormColorPicker: React.FC = () => {
         return () => {
             eventListeners.forEach((removeListener) => removeListener());
         };
-    }, [contentRefs, handleOutsideClick]);
+    }, [contentRefs]);
 
     return (
         <React.Fragment>
