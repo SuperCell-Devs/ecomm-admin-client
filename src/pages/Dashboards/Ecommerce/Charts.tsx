@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import useChartColors from "Common/useChartColors";
@@ -14,7 +15,7 @@ const OrderStatisticsChart = ({ chartId }: any) => {
         name: 'New Orders',
         data: [30, 24, 32, 27, 16, 22, 32, 21, 24, 20, 38, 28]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'line',
             height: 310,
@@ -72,7 +73,7 @@ const SalesRevenueOverviewChart = ({ chartId }: any) => {
         name: 'Total Profit',
         data: [11, 17, 15, 15, 21, 14, 15, 13, 5, 15, 15, 21,]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'bar',
             height: 300,
@@ -135,7 +136,7 @@ const TrafficResourcesChart = ({ chartId }: any) => {
 
     //Traffic Resources Chart
     const series = [44, 34, 22];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 222,
             type: 'radialBar',
@@ -329,7 +330,7 @@ const SalesMonthChart = ({ chartId }: any) => {
             ]
         }
     ];
-    var options: any = {
+    const options: any = {
 
         chart: {
             height: 285,
@@ -406,7 +407,7 @@ const AudienceChart = ({ chartId }: any) => {
         name: 'Female',
         data: [13, 23, 20, 8, 13, 27, 41]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'bar',
             height: 390,
