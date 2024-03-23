@@ -6,7 +6,7 @@ const CustomRadial = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const series = [76, 67, 61, 90];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 390,
             type: 'radialBar',
@@ -83,7 +83,7 @@ const GradientChart = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const series = [75];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'radialBar',

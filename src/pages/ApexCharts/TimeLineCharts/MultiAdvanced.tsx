@@ -60,7 +60,7 @@ const MultiSeries = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'rangeBar'
@@ -73,9 +73,9 @@ const MultiSeries = ({ chartId }: any) => {
         dataLabels: {
             enabled: true,
             formatter: function (val : any) {
-                var a = moment(val[0])
-                var b = moment(val[1])
-                var diff = b.diff(a, 'days')
+                const a = moment(val[0])
+                const b = moment(val[1])
+                const diff = b.diff(a, 'days')
                 return diff + (diff > 1 ? ' days' : ' day')
             }
         },
@@ -249,7 +249,7 @@ const Advancedranges = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'rangeBar'

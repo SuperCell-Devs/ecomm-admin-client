@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import useChartColors from 'Common/useChartColors';
 import React from 'react'
 import ReactApexChart from 'react-apexcharts'
@@ -6,7 +7,7 @@ const SimpleRadial = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const series = [80];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'radialBar',
@@ -42,7 +43,7 @@ const MultipleRadial = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const series = [44, 55, 67, 83];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'radialBar',

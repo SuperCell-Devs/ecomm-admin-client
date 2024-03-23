@@ -11,7 +11,7 @@ const OrdersOverviewChart = ({ chartId }: any) => {
         data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 3.4, 5.5, 8.8]
     }];
 
-    var options: any = {
+    const options: any = {
         chart: {
             height: 238,
             type: 'bar',

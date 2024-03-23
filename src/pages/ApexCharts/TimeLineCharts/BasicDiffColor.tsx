@@ -40,7 +40,7 @@ const BasicTimeline = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'rangeBar'
@@ -115,7 +115,7 @@ const DiffColor = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'rangeBar'
@@ -133,10 +133,10 @@ const DiffColor = ({ chartId }: any) => {
         dataLabels: {
             enabled: true,
             formatter: function (val : any, opts : any) {
-                var label = opts.w.globals.labels[opts.dataPointIndex]
-                var a = moment(val[0])
-                var b = moment(val[1])
-                var diff = b.diff(a, 'days')
+                const label = opts.w.globals.labels[opts.dataPointIndex]
+                const a = moment(val[0])
+                const b = moment(val[1])
+                const diff = b.diff(a, 'days')
                 return label + ': ' + diff + (diff > 1 ? ' days' : ' day')
             },
         },

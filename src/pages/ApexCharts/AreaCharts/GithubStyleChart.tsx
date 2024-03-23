@@ -12,7 +12,7 @@ const GithubStyleChart = ({ chartId }: any) => {
         name: 'commits',
         data: githubdata.series
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             id: 'chartyear',
             type: 'area',
@@ -23,14 +23,14 @@ const GithubStyleChart = ({ chartId }: any) => {
             },
             events: {
                 mounted: function (chart: any) {
-                    var commitsEl: any = document.querySelector('.cmeta span.commits');
-                    var commits = chart.getSeriesTotalXRange(chart.w.globals.minX, chart.w.globals.maxX);
+                    const commitsEl: any = document.querySelector('.cmeta span.commits');
+                    const commits = chart.getSeriesTotalXRange(chart.w.globals.minX, chart.w.globals.maxX);
 
                     commitsEl.innerHTML = commits;
                 },
                 updated: function (chart: any) {
-                    var commitsEl: any = document.querySelector('.cmeta span.commits');
-                    var commits = chart.getSeriesTotalXRange(chart.w.globals.minX, chart.w.globals.maxX);
+                    const commitsEl: any = document.querySelector('.cmeta span.commits');
+                    const commits = chart.getSeriesTotalXRange(chart.w.globals.minX, chart.w.globals.maxX);
 
                     commitsEl.innerHTML = commits;
                 }

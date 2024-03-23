@@ -42,7 +42,7 @@ const ComingSoon = () => {
 
                     <div className="mt-8 text-center">
                         <h4 className="mb-2 text-purple-500 dark:text-purple-500">Coming Soon ...</h4>
-                        <p className="text-slate-500 dark:text-zink-200">We'll be here in a brief moment.</p>
+                        <p className="text-slate-500 dark:text-zink-200">We&apos;ll be here in a brief moment.</p>
                     </div>
 
                     <div>
@@ -72,7 +72,7 @@ const ComingSoon = () => {
 
                         <div className="mt-10 text-center">
                             <h5 className="mb-2">Be alerted when our launch happens.</h5>
-                            <p className="mb-5 text-slate-500 dark:text-zink-200">Don't worry, we won't inundate your inbox 😊</p>
+                            <p className="mb-5 text-slate-500 dark:text-zink-200">Don&apos;t worry, we won&apos;t inundate your inbox 😊</p>
                             <form action="#!" className="relative">
                                 <input type="email" id="inputEmail" className="py-2.5 form-input dark:bg-zink-600/50 border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter your email" required />
                                 <button type="submit" className="px-2.5 py-1.5 text-sm text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20 absolute top-[5px] ltr:right-1 rtl:left-1">Send</button>
@@ -93,7 +93,7 @@ const ComingSoon = () => {
                         <div className="text-center">
                             <i className="text-4xl text-green-500 ri-verified-badge-line"></i>
                             <div className="mt-5 mb-4">
-                                <h4 className="mb-2">We've Launched our new website</h4>
+                                <h4 className="mb-2">We&apos;ve Launched our new website</h4>
                                 <p className="text-slate-500 dark:text-zink-200">Click the below button to visit our website.</p>
                             </div>
                             <Link to="/" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Back to Home</Link>

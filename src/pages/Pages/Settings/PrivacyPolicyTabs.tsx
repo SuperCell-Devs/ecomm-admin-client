@@ -10,7 +10,7 @@ const PrivacyPolicyTabs = () => {
                         <div className="flex flex-col justify-between gap-2 md:flex-row">
                             <div>
                                 <h4 className="text-15">Two-factor Authentication</h4>
-                                <p className="mt-1 text-slate-500 dark:text-zink-200">Two-factor authentication is an enhanced security. Once enabled, you'll be required to give two types of identification when you log into Google Authentication and SMS are Supported.</p>
+                                <p className="mt-1 text-slate-500 dark:text-zink-200">Two-factor authentication is an enhanced security. Once enabled, you will be required to give two types of identification when you log into Google Authentication and SMS are Supported.</p>
                             </div>
                             <div className="shrink-0">
                                 <button type="button" className="py-1 text-xs px-1.5 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Enable Two-factor Authentication</button>
@@ -87,7 +87,7 @@ const PrivacyPolicyTabs = () => {
                         </div>
                     </div>
                     <h6 className="inline-block mt-6 mb-4 underline text-15">Delete This Account:</h6>
-                    <p className="mt-1 text-slate-500 dark:text-zink-200">Go to the Data & Privacy section of your profile Account. Scroll to "Your data & privacy options." Delete your Profile Account. Follow the instructions to delete your account :</p>
+                    <p className="mt-1 text-slate-500 dark:text-zink-200">Go to the Data & Privacy section of your profile Account. Scroll to Your data & privacy options. Delete your Profile Account. Follow the instructions to delete your account :</p>
                     <form action="">
                         <div className="max-w-xs mt-4">
                             <div>

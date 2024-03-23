@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
 
@@ -34,7 +35,7 @@ import {
   InvoiceList
 } from "Common/data";
 
-let users = [
+const users = [
   {
     uid: 1,
     username: "admin",
@@ -92,10 +93,10 @@ const fakeBackend = () => {
       setTimeout(() => {
         if (validUser["length"] === 1) {
 
-          let objIndex;
+          
 
           //Find index of specific object using findIndex method.
-          objIndex = users.findIndex(obj => obj.uid === user.idx);
+          const objIndex = users.findIndex(obj => obj.uid === user.idx);
           //Update object's name property.
           users[objIndex].username = user.username;
 
@@ -154,7 +155,7 @@ const fakeBackend = () => {
 
     const one = config.headers;
 
-    let finalToken = one?.Authorization;
+    const finalToken = one?.Authorization;
 
     const validUser = users.filter(usr => usr.uid === user.idx);
 
@@ -163,10 +164,10 @@ const fakeBackend = () => {
         // Verify Jwt token from header.Authorization
         if (finalToken === accessToken) {
           if (validUser["length"] === 1) {
-            let objIndex;
+
 
             //Find index of specific object using findIndex method.
-            objIndex = users.findIndex(obj => obj.uid === user.idx);
+            const objIndex = users.findIndex(obj => obj.uid === user.idx);
 
             //Update object's name property.
             users[objIndex].username = user.username;

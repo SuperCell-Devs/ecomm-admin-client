@@ -6,12 +6,12 @@ const StackedChart = ({ chartId }: any) => {
 
     const chartColors = useChartColors(chartId);
 
-    var generateDayWiseTimeSeries = function (baseval : any, count : any, yrange : any) {
-        var i = 0;
-        var series = [];
+    const generateDayWiseTimeSeries = function (baseval : any, count : any, yrange : any) {
+        let i = 0;
+        const series = [];
         while (i < count) {
-            var x = baseval;
-            var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+            const x = baseval;
+            const y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
     
             series.push([x, y]);
             baseval += 86400000;
@@ -43,7 +43,7 @@ const StackedChart = ({ chartId }: any) => {
             })
         }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'area',
             height: 350,

@@ -9,7 +9,7 @@ const Gradient = ({ chartId }: any) => {
         name: 'Sales',
         data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'line',

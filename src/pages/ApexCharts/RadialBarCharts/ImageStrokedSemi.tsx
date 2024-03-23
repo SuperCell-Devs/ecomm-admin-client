@@ -8,7 +8,7 @@ import logosm from "assets/images/logo-sm.png"
 const ImageRadial = ({ chartId }: any) => {
 
     const series = [67];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'radialBar',
@@ -68,7 +68,7 @@ const StrokedChart = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const series = [67];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'radialBar',
@@ -133,7 +133,7 @@ const SemiRadial = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const series = [76];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'radialBar',
             height: 350,

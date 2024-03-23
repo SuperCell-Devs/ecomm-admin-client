@@ -85,7 +85,7 @@ const LineScatter = ({ chartId }: any) => {
             y: 11
         }]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'line',

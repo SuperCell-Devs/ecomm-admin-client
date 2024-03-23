@@ -37,7 +37,7 @@ const VendorsListView = () => {
     const [data, setData] = useState<any>([]);
     // const [eventData, setEventData] = useState<any>();
 
-    const handleDataSearch = (e: any) => {
+    const handleDataSearch = () => {
         // 
     }
 

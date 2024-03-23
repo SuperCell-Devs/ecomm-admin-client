@@ -221,7 +221,6 @@ const ProductsListView = () => {
                             <div className="py-6 text-center">
                                 <Search className="size-6 mx-auto mb-3 text-sky-500 fill-sky-100 dark:fill-sky-500/20" />
                                 <h5 className="mt-2 mb-1">Sorry! No Result Found</h5>
-                                <p className="mb-0 text-slate-500 dark:text-zink-200">We've searched more than 199+ product We did not find any product for you search.</p>
                             </div>
                         </div>)}
                 </div>

@@ -6,7 +6,7 @@ const TotalEmployeeChart = ({ chartId, dataChartColor, series }: any) => {
 
     const chartColors = useChartColors(chartId);
     //  Total Employee
-    var options: any = {
+    const options: any = {
         chart: {
             height: 110,
             type: 'radialBar',
@@ -69,7 +69,7 @@ const ApplicationReceivedChart = ({ chartId }: any) => {
         type: 'line',
         data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 315,
             type: 'line',
@@ -163,7 +163,7 @@ const TotalProjectsChart = ({ chartId }: any) => {
         name: 'Rejected',
         data: [21, 7, 25, 13, 22, 8, 13, 7, 25,]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'bar',
             height: 350,

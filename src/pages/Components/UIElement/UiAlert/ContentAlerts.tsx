@@ -38,7 +38,7 @@ const ContentAlerts = () => {
                                 <AlertCircle className="inline-block size-4 mt-0.5 shrink-0"></AlertCircle>
                                 <Alert.Content>
                                     <h6 className="mb-1">Uh oh, something went wrong!</h6>
-                                    <p>Better check yourself, you're not looking too good. Whenever you need to, be sure to use margin utilities to keep things nice and tidy. If your device is running an outdated version of Android, this could be causing the issue. To check for updates, open your device's Settings app, go to System, and then tap System update.</p>
+                                    <p>Better check yourself, you&apos;re not looking too good. Whenever you need to, be sure to use margin utilities to keep things nice and tidy. If your device is running an outdated version of Android, this could be causing the issue. To check for updates, open your device&apos;s Settings app, go to System, and then tap System update.</p>
                                 </Alert.Content>
                             </Alert>
                             <Alert className="flex gap-3 p-4 text-sm text-red-500 rounded-md bg-red-50 dark:bg-red-400/20">

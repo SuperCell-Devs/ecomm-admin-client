@@ -61,7 +61,7 @@ const ColorRange = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         legend: {
             show: false
         },
@@ -180,7 +180,7 @@ const DistributedChart = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         legend: {
             show: false
         },

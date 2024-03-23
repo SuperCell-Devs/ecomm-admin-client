@@ -66,7 +66,7 @@ const OverviewTabs = () => {
                                 </div>
                                 <div className="p-3 mt-5 rounded-md bg-custom-600">
                                     <h2 className="mb-1 text-white">1054</h2>
-                                    <p className="text-custom-200">It's very easy to convert your points to cash now.</p>
+                                    <p className="text-custom-200">Its very easy to convert your points to cash now.</p>
                                 </div>
                             </div>
                         </div>

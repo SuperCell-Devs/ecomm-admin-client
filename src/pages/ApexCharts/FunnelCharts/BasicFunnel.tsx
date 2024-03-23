@@ -13,7 +13,7 @@ const BasicFunnel = ({ chartId }: any) => {
             data: [1380, 1100, 990, 880, 740, 548, 330, 200],
         },
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350,
@@ -79,7 +79,7 @@ const PyramidFunnel = ({ chartId }: any) => {
             data: [200, 330, 548, 740, 880, 990, 1100, 1380],
         },
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350,

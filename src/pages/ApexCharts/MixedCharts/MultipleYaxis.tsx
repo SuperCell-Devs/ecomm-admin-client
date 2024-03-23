@@ -18,7 +18,7 @@ const MultipleYaxis = ({ chartId }: any) => {
         type: 'line',
         data: [20, 29, 37, 36, 44, 45, 50, 58]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'line',

@@ -3,11 +3,11 @@ import React from 'react'
 import ReactApexChart from 'react-apexcharts';
 
 function generateDayWiseTimeSeries(baseval: any, count: any, yrange: any) {
-    var i = 0;
-    var series = [];
+    let i = 0;
+    const series = [];
     while (i < count) {
-        var x = baseval;
-        var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+        const x = baseval;
+        const y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
 
         series.push([x, y]);
         baseval += 86400000;
@@ -16,7 +16,7 @@ function generateDayWiseTimeSeries(baseval: any, count: any, yrange: any) {
     return series;
 }
 
-var data = generateDayWiseTimeSeries(new Date('11 Feb 2017').getTime(), 185, {
+const data = generateDayWiseTimeSeries(new Date('11 Feb 2017').getTime(), 185, {
     min: 30,
     max: 90
 })
@@ -27,7 +27,7 @@ const BrushLine = ({ chartId }: any) => {
         data: data
     }];
 
-    var options: any = {
+    const options: any = {
         chart: {
             id: 'chart2',
             type: 'line',
@@ -76,7 +76,7 @@ const BrushLine2 = ({ chartId }: any) => {
     const series= [{
         data: data
     }];
-    var optionsLine : any = {
+    const optionsLine : any = {
         chart: {
             id: 'chart1',
             height: 130,

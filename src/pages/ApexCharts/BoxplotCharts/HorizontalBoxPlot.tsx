@@ -40,7 +40,7 @@ const HorizontalBoxPlot = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'boxPlot',
             height: 350

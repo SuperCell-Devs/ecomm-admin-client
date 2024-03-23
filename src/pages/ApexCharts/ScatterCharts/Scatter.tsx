@@ -21,7 +21,7 @@ const BasicScatter = ({ chartId }: any) => {
         data: [
             [21.7, 3], [23.6, 3.5], [24.6, 3], [29.9, 3], [21.7, 20], [23, 2], [10.9, 3], [28, 4], [27.1, 0.3], [16.4, 4], [13.6, 0], [19, 5], [22.4, 3], [24.5, 3], [32.6, 3], [27.1, 4], [29.6, 6], [31.6, 8], [21.6, 5], [20.9, 4], [22.4, 0], [32.6, 10.3], [29.7, 20.8], [24.5, 0.8], [21.4, 0], [21.7, 6.9], [28.6, 7.7], [15.4, 0], [18.1, 0], [33.4, 0], [16.4, 0]]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'scatter',
@@ -64,10 +64,10 @@ const DatetimeScatter = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const generateDayWiseTimeSeries = (baseval: any, count: any, yrange: any) => {
-        var i = 0;
-        var series = [];
+        let i = 0;
+        const series = [];
         while (i < count) {
-            var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+            const y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
 
             series.push([baseval, y]);
             baseval += 86400000;
@@ -112,7 +112,7 @@ const DatetimeScatter = ({ chartId }: any) => {
         })
     },
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'scatter',
@@ -206,7 +206,7 @@ const ImageScatter = ({ chartId }: any) => {
             [11.6, 12]
         ]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'scatter',

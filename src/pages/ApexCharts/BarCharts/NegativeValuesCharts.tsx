@@ -19,7 +19,7 @@ const NegativeValuesCharts = ({ chartId }: any) => {
         ]
     }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350,

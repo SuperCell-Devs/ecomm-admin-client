@@ -60,7 +60,7 @@ const BasicRange = ({ chartId }: any) => {
             ]
         }
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'rangeArea'
@@ -278,7 +278,7 @@ const ComboRange = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'rangeArea',

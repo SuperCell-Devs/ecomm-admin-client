@@ -243,7 +243,7 @@ const GridView = () => {
                 dialogClassName="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-500 hover:text-red-500">
-                    <Modal.Title className="text-16">{!!isEdit ? "Edit User" : "Add User"}</Modal.Title>
+                    <Modal.Title className="text-16">{isEdit ? "Edit User" : "Add User"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
                     <form action="#!" onSubmit={(e) => {
@@ -308,7 +308,7 @@ const GridView = () => {
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" data-modal-close="addDocuments" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10" onClick={toggle}>Cancel</button>
                             <button type="submit" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
-                                {!!isEdit ? "Update User" : "Add User"}
+                                {isEdit ? "Update User" : "Add User"}
                             </button>
                         </div>
                     </form>

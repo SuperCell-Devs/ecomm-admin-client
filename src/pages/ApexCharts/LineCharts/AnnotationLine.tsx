@@ -11,7 +11,7 @@ const AnnotationLine = ({ chartId }: any) => {
     const series = [{
         data: seriesData.monthDataSeries1.prices
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'line',

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import BreadCrumb from "Common/BreadCrumb";
 import Flatpickr from "react-flatpickr";

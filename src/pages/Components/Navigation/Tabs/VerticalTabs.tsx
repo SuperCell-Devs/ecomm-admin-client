@@ -29,7 +29,7 @@ const VerticalTabs = () => {
 
                             <Tab.Content className="tab-content">
                                 <Tab.Pane eventKey="homeVertical" id="homeVertical">
-                                    <p className="flex gap-2 mb-2 text-slate-500 dark:text-zink-200"><CheckSquare className="inline-block h-3.5 mt-1 shrink-0 text-green-500" /> Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.</p>
+                                    <p className="flex gap-2 mb-2 text-slate-500 dark:text-zink-200"><CheckSquare className="inline-block h-3.5 mt-1 shrink-0 text-green-500" /> Raw denim you probably haven&apos;t heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse.</p>
                                     <p className="flex gap-2 text-slate-500 dark:text-zink-200"><CheckSquare className="inline-block h-3.5 mt-1 shrink-0 text-green-500" /> Too much or too little spacing, as in the example below, can make things unpleasant for the reader. The goal is to make your text as comfortable to read as possible.</p>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="profileVertical">

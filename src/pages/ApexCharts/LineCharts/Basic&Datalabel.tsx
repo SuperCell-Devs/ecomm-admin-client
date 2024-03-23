@@ -10,7 +10,7 @@ const BasicLine = ({ chartId }: any) => {
         data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
     }];
 
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'line',
@@ -68,7 +68,7 @@ const DataLabelLine = ({ chartId }: any) => {
             data: [12, 11, 14, 18, 17, 13, 13]
         }
     ];
-    var dataLabelOptions: any = {
+    const dataLabelOptions: any = {
         chart: {
             height: 350,
             type: 'line',

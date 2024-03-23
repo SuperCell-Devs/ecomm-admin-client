@@ -103,7 +103,7 @@ const MissingValuesChart = ({ chartId }: any) => {
         }
         ],
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'area',
             height: 350,

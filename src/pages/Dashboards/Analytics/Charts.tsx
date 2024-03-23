@@ -50,7 +50,7 @@ const PerspectiveChart = ({ chartId }: any) => {
             ]
         }
     ];
-    var options: any = {
+    const options: any = {
 
         legend: {
             show: false
@@ -94,7 +94,7 @@ const LocationChart = ({ chartId }: any) => {
         name: "Response Times",
         data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'line',
@@ -154,7 +154,7 @@ const InteractionChart = ({ chartId }: any) => {
         // }
     ];
 
-    var options: any = {
+    const options: any = {
 
         chart: {
             height: 350,
@@ -261,7 +261,7 @@ const UserDeviceChart = ({ chartId }: any) => {
         name: 'Others',
         data: [44, 76, 78, 13, 43, 10],
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 240,
             type: 'radar',
@@ -322,7 +322,7 @@ const SatisfactionChart = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
     //Satisfaction Rate
     const series = [95.33];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'radialBar',
             height: 450,
@@ -411,7 +411,7 @@ const DailyVisitChart = ({ chartId }: any) => {
             data: [55, 41, 67, 22, 43, 21, 33, 45]
         }
     ];
-    var options: any = {
+    const options: any = {
         annotations: {
             points: [{
                 x: 'Bananas',
@@ -517,7 +517,7 @@ const ReportChart = ({ chartId }: any) => {
             data: [20, 17, 21, 29, 23]
         }
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 235,
             type: 'line',
@@ -594,7 +594,7 @@ const SubscriptionChart = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
     //Subscription Distribution
     const series = [44, 55, 41, 17, 15];
-    var options: any = {
+    const options: any = {
         labels: ['Beginner', 'Intermediate', 'Enterprise', 'VIP', 'Professional'],
         chart: {
             height: 270,

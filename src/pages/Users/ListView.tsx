@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import BreadCrumb from 'Common/BreadCrumb';
 import { Link } from 'react-router-dom';
@@ -368,7 +369,7 @@ const ListView = () => {
                                     <div className="py-6 text-center">
                                         <Search className="size-6 mx-auto text-sky-500 fill-sky-100 dark:sky-500/20" />
                                         <h5 className="mt-2 mb-1">Sorry! No Result Found</h5>
-                                        <p className="mb-0 text-slate-500 dark:text-zink-200">We've searched more than 199+ users We did not find any users for you search.</p>
+                                        <p className="mb-0 text-slate-500 dark:text-zink-200">We ve searched more than 199+ users We did not find any users for you search.</p>
                                     </div>
                                 </div>)}
                         </div>
@@ -383,7 +384,7 @@ const ListView = () => {
                 dialogClassName="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b dark:border-zink-300/20"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
-                    <Modal.Title className="text-16">{!!isEdit ? "Edit User" : "Add User"}</Modal.Title>
+                    <Modal.Title className="text-16">{ isEdit ? "Edit User" : "Add User"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
                     <form action="#!" onSubmit={(e) => {
@@ -509,7 +510,7 @@ const ListView = () => {
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" data-modal-close="addDocuments" className="text-red-500 transition-all duration-200 ease-linear bg-white border-white btn hover:text-red-600 focus:text-red-600 active:text-red-600 dark:bg-zink-500 dark:border-zink-500" onClick={toggle}>Cancel</button>
                             <button type="submit" className="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
-                                {!!isEdit ? "Update User" : "Add User"}
+                                { isEdit ? "Update User" : "Add User"}
                             </button>
                         </div>
                     </form>

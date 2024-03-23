@@ -7,7 +7,7 @@ const UiCollapse = () => {
     return (
         <React.Fragment>
             <div className="container-fluid group-data-[content=boxed]:max-w-boxed mx-auto">
-                <BreadCrumb title='Collapse' pageTitle='UI Elements' />
+                <BreadCrumb title="Collapse"  pageTitle="UI Elements"  />
                 <div>
                     <div className="card">
                         <div className="card-body">
@@ -24,7 +24,7 @@ const UiCollapse = () => {
                                     </Collapse.Trigger>
                                     <Collapse.Content className="mt-2 mb-0 collapsible-content card">
                                         <div className="card-body">
-                                            <p>For that very reason, I went on a quest and spoke to many different professional graphic designers and asked them what graphic design tips they live. You've probably heard that opposites attract. The same is true for fonts. Don't be afraid to combine font styles that are different but complementary, like sans serif with serif, short with tall, or decorative with simple. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco.</p>
+                                            <p>For that very reason, I went on a quest and spoke to many different professional graphic designers and asked them what graphic design tips they live. You ve probably heard that opposites attract. The same is true for fonts. Don t be afraid to combine font styles that are different but complementary, like sans serif with serif, short with tall, or decorative with simple. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco.</p>
                                         </div>
                                     </Collapse.Content>
                                 </Collapse>
@@ -39,7 +39,7 @@ const UiCollapse = () => {
                                     </Collapse.Trigger>
                                     <Collapse.Content className="mt-2 mb-0 collapsible-content card">
                                         <div className="card-body">
-                                            <p>For that very reason, I went on a quest and spoke to many different professional graphic designers and asked them what graphic design tips they live. You've probably heard that opposites attract. The same is true for fonts. Don't be afraid to combine font styles that are different but complementary, like sans serif with serif, short with tall, or decorative with simple. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco.</p>
+                                            <p>For that very reason, I went on a quest and spoke to many different professional graphic designers and asked them what graphic design tips they live. You ve probably heard that opposites attract. The same is true for fonts. Don t be afraid to combine font styles that are different but complementary, like sans serif with serif, short with tall, or decorative with simple. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco.</p>
                                         </div>
                                     </Collapse.Content>
                                 </Collapse>
@@ -56,7 +56,7 @@ const UiCollapse = () => {
                                 </Collapse.Trigger>
                                 <Collapse.Content className="mt-2 mb-0 collapsible-content card">
                                     <div className="card-body">
-                                        <p>For that very reason, I went on a quest and spoke to many different professional graphic designers and asked them what graphic design tips they live. You've probably heard that opposites attract. The same is true for fonts. Don't be afraid to combine font styles that are different but complementary, like sans serif with serif, short with tall, or decorative with simple. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco.</p>
+                                        <p>For that very reason, I went on a quest and spoke to many different professional graphic designers and asked them what graphic design tips they live. You ve probably heard that opposites attract. The same is true for fonts. Don t be afraid to combine font styles that are different but complementary, like sans serif with serif, short with tall, or decorative with simple. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco.</p>
                                     </div>
                                 </Collapse.Content>
                             </Collapse>

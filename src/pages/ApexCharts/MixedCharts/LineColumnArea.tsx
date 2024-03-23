@@ -18,7 +18,7 @@ const LineColumnArea = ({ chartId }: any) => {
         type: 'line',
         data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'line',

@@ -27,7 +27,7 @@ const CardTitle = () => {
                             Card subtitle
                         </p>
                         <p className="mt-2 text-slate-500 dark:text-zink-200">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                            Some quick example text to build on the card title and make up the bulk of the card&apos;s content.
                         </p>
                         <a className="inline-flex items-center gap-2 mt-3 text-sm font-medium transition-all duration-200 ease-linear text-custom-500 hover:text-custom-600" href="#!">
                             Card link <ChevronRight className="inline-block size-4"></ChevronRight>

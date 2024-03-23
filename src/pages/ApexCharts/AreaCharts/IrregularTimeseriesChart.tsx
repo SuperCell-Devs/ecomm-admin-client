@@ -41,7 +41,7 @@ const IrregularTimeseriesChart = ({ chartId }: any) => {
         name: 'PRODUCT C',
         data: dataSet[2]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'area',
             stacked: false,

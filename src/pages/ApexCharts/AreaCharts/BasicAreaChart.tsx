@@ -11,7 +11,7 @@ const BasicAreaChart = ({ chartId }: any) => {
         data: seriesData.monthDataSeries1.prices
     }];
 
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'area',
             height: 350,

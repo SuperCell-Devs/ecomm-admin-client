@@ -250,7 +250,7 @@ const BasicChart = ({ chartId }: any) => {
         },
         ]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'candlestick',
             height: 350

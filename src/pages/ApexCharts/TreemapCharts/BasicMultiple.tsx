@@ -63,7 +63,7 @@ const BasicTime = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         legend: {
             show: false
         },
@@ -140,7 +140,7 @@ const MultipleSeries = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         legend: {
             show: false
         },

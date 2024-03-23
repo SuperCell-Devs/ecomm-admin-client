@@ -6,7 +6,7 @@ const BasicPolar = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const series = [14, 23, 21, 17, 15, 10, 12, 17, 21];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'polarArea',
@@ -43,7 +43,7 @@ const MonochromeChart = ({ chartId }: any) => {
     const chartColors = useChartColors(chartId);
 
     const series = [42, 47, 52, 58, 65];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'polarArea'

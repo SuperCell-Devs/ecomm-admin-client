@@ -35,7 +35,7 @@ const ColumnGroupLabel = ({ chartId }: any) => {
             y: 690
         }]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350

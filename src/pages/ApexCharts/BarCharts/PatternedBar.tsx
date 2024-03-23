@@ -19,7 +19,7 @@ const PatternedBar = ({ chartId }: any) => {
         name: 'Bucket Slope',
         data: [9, 7, 5, 8, 6, 9, 4]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350,

@@ -2,7 +2,7 @@ import axios from "axios";
 import { IBrand, Paginated } from "./interface/api";
 // import { api } from "../config";
 
-axios.defaults.baseURL = "http://10.77.77.242/api/v1/";
+axios.defaults.baseURL = "http://95.179.133.4:1769/api/v1/";
 // content type
 axios.defaults.headers.post["Content-Type"] = "application/json";
 

@@ -20,7 +20,7 @@ const StackedColumns = ({ chartId }: any) => {
         name: 'PRODUCT D',
         data: [21, 7, 25, 13, 22, 8]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350,

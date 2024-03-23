@@ -16,7 +16,7 @@ const Navbar = () => {
 
     // scroll
     const scrollNavigation = () => {
-        var scrollUp = document.documentElement.scrollTop;
+        const scrollUp = document.documentElement.scrollTop;
         if (scrollUp >= 50) {
             setNavClass('is-sticky');
         } else {

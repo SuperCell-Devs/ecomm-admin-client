@@ -19,7 +19,7 @@ const HorizontalCard = () => {
                                 Card title
                             </h6>
                             <p className="text-slate-500 dark:text-zink-200">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                                Some quick example text to build on the card title and make up the bulk of the card content.
                             </p>
                             <div className="mt-5 sm:mt-auto">
                                 <p className="text-sm text-slate-500 dark:text-zink-200">
@@ -36,7 +36,7 @@ const HorizontalCard = () => {
                                 Card title
                             </h6>
                             <p className="mt-2 text-slate-500 dark:text-zink-200">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
+                                Some quick example text to build on the card title and make up the bulk of the card content.
                             </p>
                             <div className="mt-5 sm:mt-auto">
                                 <p className="text-slate-500 ext-sm dark:text-zink-200">

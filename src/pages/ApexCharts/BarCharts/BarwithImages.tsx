@@ -13,7 +13,7 @@ const BarwithImages = ({ chartId }: any) => {
             11, 12, 13, 14, 16, 14, 15, 17, 19, 21
         ]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350,

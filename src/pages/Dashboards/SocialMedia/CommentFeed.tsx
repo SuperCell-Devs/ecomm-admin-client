@@ -273,7 +273,7 @@ const CommentFeed = () => {
                                 </Dropdown>
                             </div>
                         </div>
-                        <p>Product design is the process of developing a usable product that meets customer's needs by defining the users' problems and finding creative solutions for these problems. The term is also used to refer to the result of this process, the design qualities of an existing product.</p>
+                        <p>Product design is the process of developing a usable product that meets customer  needs by defining the users problems and finding creative solutions for these problems. The term is also used to refer to the result of this process, the design qualities of an existing product.</p>
                         <div className="grid gap-4 mt-4 md:grid-cols-3">
                             {(productGallery || []).map((item: any, key: number) => (<Link to="#" className="highlight-story" onClick={() => setIndex(key)} key={key}>
                                 <img src={item} alt="" className="rounded-md" />
@@ -343,7 +343,7 @@ const CommentFeed = () => {
                                 </Dropdown>
                             </div>
                         </div>
-                        <p>Add a 'Different Languages' option to the poll.</p>
+                        <p>Add a Different Languages option to the poll.</p>
                         <ul className="inline-flex flex-col gap-3 p-4 mt-4 rounded-md w-80 bg-slate-100 max-w-7xl dark:bg-zink-600">
                             <li>
                                 <Link to="#!" className="relative flex gap-4 group active">
@@ -493,7 +493,7 @@ const CommentFeed = () => {
                                 {
                                     (selectfiles || [])?.map((file: any, index: number) => {
                                         return (
-                                            <li className="mt-5" id="dropzone-preview-list2">
+                                            <li key={index} className="mt-5" id="dropzone-preview-list2">
                                                 <div className="border rounded border-slate-200 dark:border-zink-500">
                                                     <div className="p-2 text-center">
                                                         <div>
@@ -550,7 +550,7 @@ const CommentFeed = () => {
                                 options={{
                                     dateFormat: "d M, Y"
                                 }}
-                                placeholder='Select date'
+                                placeholder="select date"
                             />
                         </div>
                         <div className="mb-4">
@@ -563,7 +563,7 @@ const CommentFeed = () => {
                                     noCalendar: true,
                                     dateFormat: "H:i",
                                 }}
-                                placeholder='Select Time'
+                                placeholder="elect Time"
                             />
                         </div>
                         <div className="mb-4">

@@ -12,7 +12,7 @@ const RecentStatistics = ({ chartId }: any) => {
         name: 'Followers',
         data: [76, 85, 101, 98, 87, 105, 91, 114, 94, 105, 91]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'bar',
             height: 350,

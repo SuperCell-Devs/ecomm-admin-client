@@ -26,7 +26,7 @@ export const loginUser = (
             localStorage.setItem("authUser", JSON.stringify(response));
 
         } else if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-            let fireBaseBackend = await getFirebaseBackend();
+            const fireBaseBackend = await getFirebaseBackend();
 
             response = await fireBaseBackend.loginUser(
                 user.email,
@@ -48,7 +48,7 @@ export const logoutUser = () => async (dispatch: Dispatch) => {
     try {
         localStorage.removeItem("authUser");
 
-        let fireBaseBackend = await getFirebaseBackend();
+        const fireBaseBackend = await getFirebaseBackend();
 
         if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
             const response = fireBaseBackend.logout;

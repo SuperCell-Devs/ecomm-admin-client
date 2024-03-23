@@ -387,7 +387,7 @@ const ZoomableTimeSeries = ({ chartId }: any) => {
             y: 162
         },]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'area',
             stacked: false,

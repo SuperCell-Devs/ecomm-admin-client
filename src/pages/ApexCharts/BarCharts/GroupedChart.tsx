@@ -10,7 +10,7 @@ const GroupedChart = ({ chartId }: any) => {
     }, {
         data: [53, 32, 33, 52, 13, 44, 32]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350

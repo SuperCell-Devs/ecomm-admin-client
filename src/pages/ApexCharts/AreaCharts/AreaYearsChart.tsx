@@ -10,7 +10,7 @@ const AreaYearsChart = ({ chartId }: any) => {
         name: 'commits',
         data: githubdata.series
     }];
-    var optionsYears : any = {
+    const optionsYears : any = {
         chart: {
             height: 150,
             type: 'area',

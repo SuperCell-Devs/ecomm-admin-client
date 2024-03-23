@@ -10,7 +10,7 @@ const RotatedLabels = ({ chartId }: any) => {
         name: 'Servings',
         data: [44, 55, 41, 67, 22, 43, 21, 33, 45, 31, 87, 65, 35]
     }];
-    var options : any = {
+    const options : any = {
         annotations: {
             points: [{
                 x: 'Bananas',

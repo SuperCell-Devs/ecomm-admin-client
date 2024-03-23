@@ -9,7 +9,7 @@ const SimpleRadar = ({ chartId }: any) => {
         name: 'Series 1',
         data: [80, 50, 30, 40, 100, 20],
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'radar',
@@ -49,7 +49,7 @@ const RadarMultipleSeries = ({ chartId }: any) => {
         name: 'Series 3',
         data: [44, 76, 78, 13, 43, 10],
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'radar',
@@ -97,7 +97,7 @@ const RadarWithPolygonfill = ({ chartId }: any) => {
         name: 'Series 1',
         data: [20, 100, 40, 30, 50, 80, 33],
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'radar',

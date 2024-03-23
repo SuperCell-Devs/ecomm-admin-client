@@ -29,7 +29,7 @@ const GroupedStacked = ({ chartId }: any) => {
             data: [20000, 40000, 25000, 10000, 12000, 28000]
         }
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'bar',
             height: 350,

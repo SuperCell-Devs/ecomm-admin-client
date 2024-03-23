@@ -62,16 +62,16 @@ export const UPDATE_BRANDS_LIST = "/Brands";
 export const DELETE_BRANDS_LIST = "/Brands";
 
 // Country
-export const GET_COUNTRYS_LIST = "/Countrys";
-export const ADD_COUNTRYS_LIST = "/Countrys";
-export const UPDATE_COUNTRYS_LIST = "/Countrys";
-export const DELETE_COUNTRYS_LIST = "/Countrys";
+export const GET_COUNTRYS_LIST = "/Country";
+export const ADD_COUNTRYS_LIST = "/Country";
+export const UPDATE_COUNTRYS_LIST = "/Country";
+export const DELETE_COUNTRYS_LIST = "/Country";
 
 // Districts
-export const GET_DISTRICT_LIST = "/Districts";
-export const ADD_DISTRICT_LIST = "/Districts";
-export const UPDATE_DISTRICT_LIST = "/Districts";
-export const DELETE_DISTRICT_LIST = "/Districts";
+export const GET_DISTRICT_LIST = "/District";
+export const ADD_DISTRICT_LIST = "/District";
+export const UPDATE_DISTRICT_LIST = "/District";
+export const DELETE_DISTRICT_LIST = "/District";
 
 
 // // Grid View

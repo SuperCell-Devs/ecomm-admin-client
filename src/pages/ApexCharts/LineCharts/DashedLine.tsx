@@ -17,7 +17,7 @@ const DashedLine = ({ chartId }: any) => {
         name: 'Total Visits',
         data: [87, 57, 74, 99, 75, 38, 62, 47, 82, 56, 45, 47]
     }];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'line',

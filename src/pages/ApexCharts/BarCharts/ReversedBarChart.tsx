@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 // import useChartColors from "Common/useChartColors";
@@ -5,7 +6,7 @@ import ReactApexChart from "react-apexcharts";
 const ReversedBarChart = ({ chartId }: any) => {
 
     //Reversed Bar Chart
-    var options: any = {
+    const options: any = {
         chart: {
             type: 'bar',
             height: 350

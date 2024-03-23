@@ -129,7 +129,7 @@ const Mailbox = () => {
         element.forEach((element: any) => {
 
             if (element.classList.contains('checked')) {
-                var forId = element.querySelector('input').value;
+                const forId = element.querySelector('input').value;
 
                 if (displayCategory === "trash") {
                     dispatch(onDeleteMail(forId));
@@ -158,7 +158,7 @@ const Mailbox = () => {
             });
 
         } else {
-            var unreadConversations = document.getElementById("unreadConversations") as HTMLElement;
+            const unreadConversations = document.getElementById("unreadConversations") as HTMLElement;
 
             if (document.querySelectorAll("tr.relative.unread").length === 0) {
                 unreadConversations.classList.remove("hidden");
@@ -396,7 +396,7 @@ const Mailbox = () => {
                                 <div className="grow">
                                     <button id="closeChatRightSidebar" className="inline-flex items-center justify-center h-8 transition-all duration-200 ease-linear rounded-md shrink-0 text-slate-500 hover:text-custom-500" onClick={openMail}><ChevronsLeft className="size-4 mx-auto" /></button>
                                     <h6 className="mb-1 text-16">How Custom Software Can Solve Your Business Challenges</h6>
-                                    <p className="text-slate-500 dark:text-zink-200"><Link to="#!">infrateach@tailwick.com</Link> (Aug 6, 2023, 9:04 PM)</p>
+                                    <p className="text-slate-500 dark:text-zink-200"><Link to="#!">infrateach@tailwick.com</Link> (Aug 6, 2023, 9:04PM)</p>
                                 </div>
                                 <div className="flex gap-3 shrink-0">
                                     <Link to="#!" className="flex items-center justify-center size-6 transition-all duration-200 ease-linear text-slate-500 dark:text-zink-200 hover:text-custom-500 dark:hover:text-custom-500"><ArchiveRestore className="size-4" /></Link>
@@ -420,7 +420,7 @@ const Mailbox = () => {
                                                 <p className="text-slate-500 dark:text-zink-200"><Link to="#!">infrateach@tailwick.com</Link> </p>
                                             </div>
                                             <div className="shrink-0">
-                                                Aug 6, 2023, 9:04 PM
+                                                Aug 6, 2023, 9:04PM
                                             </div>
                                         </div>
                                         <div className="p-4 mt-3 rounded-md bg-slate-100 dark:bg-zink-600">
@@ -442,7 +442,7 @@ const Mailbox = () => {
                                                 <p className="text-slate-500 dark:text-zink-200"><Link to="#!">paulakeenan@tailwick.com</Link></p>
                                             </div>
                                             <div className="shrink-0">
-                                                07 Nov, 2023, 10:14 PM
+                                                07 Nov, 2023, 10:14PM
                                             </div>
                                         </div>
                                         <div className="p-4 mt-3 rounded-md bg-slate-100 dark:bg-zink-600">
@@ -466,7 +466,7 @@ const Mailbox = () => {
                                                 <p className="text-slate-500 dark:text-zink-200"><Link to="#!">infrateach@tailwick.com</Link></p>
                                             </div>
                                             <div className="shrink-0">
-                                                07 Nov, 2023, 10:42 PM
+                                                07 Nov, 2023, 10:42PM
                                             </div>
                                         </div>
                                         <div className="p-4 mt-3 rounded-md bg-slate-100 dark:bg-zink-600">

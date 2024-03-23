@@ -13,7 +13,7 @@ const LineColumn = ({ chartId }: any) => {
         type: 'line',
         data: [23, 42, 35, 27, 43, 22, 17, 31, 22, 22, 12, 16]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'line',

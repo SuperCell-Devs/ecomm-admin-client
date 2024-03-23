@@ -15,7 +15,7 @@ const SplineChart = ({ chartId }: any) => {
         data: [11, 32, 45, 32, 34, 52, 41]
     }];
 
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'area'

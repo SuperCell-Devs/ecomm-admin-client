@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import useChartColors from 'Common/useChartColors';
 import ReactApexChart from 'react-apexcharts';
@@ -184,7 +185,7 @@ const Grouprow = ({ chartId }: any) => {
             ]
         },
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'rangeBar'
@@ -272,7 +273,7 @@ const Dumbbell = ({ chartId }: any) => {
             ]
         }
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'rangeBar',

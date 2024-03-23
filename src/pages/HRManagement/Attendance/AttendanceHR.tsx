@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useMemo, useState } from 'react';
 import BreadCrumb from 'Common/BreadCrumb';
 import Flatpickr from 'react-flatpickr';
@@ -260,7 +261,6 @@ const AttendanceHR = () => {
                                     <div className="py-6 text-center">
                                         <Search className="size-6 mx-auto text-sky-500 fill-sky-100 dark:sky-500/20" />
                                         <h5 className="mt-2 mb-1">Sorry! No Result Found</h5>
-                                        <p className="mb-0 text-slate-500 dark:text-zink-200">We've searched more than 10+ Attendance We did not find any Attendance for you search.</p>
                                     </div>
                                 </div>)}
 

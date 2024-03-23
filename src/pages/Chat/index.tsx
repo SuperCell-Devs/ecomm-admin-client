@@ -645,9 +645,9 @@ const Chat = () => {
                                         <PrismCode code={`npm install tailwindcss`} language={("js")} plugins={["line-numbers"]} />
                                         <p className="mt-4 mb-2">Using yarn:</p>
                                         <PrismCode code={`yarn add tailwindcss`} language={("js")} plugins={["line-numbers"]} />
-                                        <p className="mt-4 mb-2">After installing, create a configuration file called <code className="text-xs text-pink-500 select-all">tailwind.config.js</code> in your project's root directory using the following command:</p>
+                                        <p className="mt-4 mb-2">After installing, create a configuration file called <code className="text-xs text-pink-500 select-all">tailwind.config.js</code> in your project&apos;s root directory using the following command:</p>
                                         <PrismCode code={`npx tailwindcss init`} language={("js")} plugins={["line-numbers"]} />
-                                        <p className="mt-4 mb-2">In your project's CSS file, import Tailwind's base styles, components, and utilities using the <code className="text-xs text-pink-500 select-all">@import</code> directive:</p>
+                                        <p className="mt-4 mb-2">In your project&apos;s CSS file, import Tailwind&apos;s base styles, components, and utilities using the <code className="text-xs text-pink-500 select-all">@import</code> directive:</p>
                                         <PrismCode code={`@import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';`} language={("js")} plugins={["line-numbers"]} />

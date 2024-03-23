@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import useChartColors from "Common/useChartColors";
@@ -10,7 +11,7 @@ const DistributedColumns = ({ chartId }: any) => {
     const series = [{
         data: [21, 22, 10, 28, 16, 21, 13, 30]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'bar',

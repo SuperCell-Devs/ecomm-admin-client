@@ -15,7 +15,7 @@ const Missing = ({ chartId }: any) => {
         name: 'David',
         data: [null, null, null, null, 3, 4, 1, 3, 4, 6, 7, 9, 5, null, null, null]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'line',

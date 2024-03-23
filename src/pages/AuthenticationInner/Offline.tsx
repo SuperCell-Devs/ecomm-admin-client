@@ -34,8 +34,8 @@ const Offline = () => {
                         <img src={offline} alt="" className="mx-auto h-72" />
                     </div>
                     <div className="mt-8 text-center">
-                        <h4 className="mb-2 text-purple-500">We're Temporarily Offline</h4>
-                        <p className="mb-6 text-slate-500 dark:text-zink-200">We can't display these images as you're currently not connected to the internet. Once you're back online, please refresh the page or click the button below.</p>
+                        <h4 className="mb-2 text-purple-500">We&apos;re Temporarily Offline</h4>
+                        <p className="mb-6 text-slate-500 dark:text-zink-200">We can&apos;t display these images as you&apos;re currently not connected to the internet. Once you&apos;re back online, please refresh the page or click the button below.</p>
                         <button
                             onClick={() => window.location.reload()}
                             className="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">

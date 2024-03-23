@@ -241,7 +241,7 @@ const OrderOverview = () => {
                                     <div className="flex gap-4">
                                         <div className="grow">
                                             <h6 className="mb-2 text-gray-800 text-15 dark:text-zink-50">Shipped Order</h6>
-                                            <p className="text-gray-400 dark:text-zink-200">The order is shipped out to the customer's designated delivery address.</p>
+                                            <p className="text-gray-400 dark:text-zink-200">The order is shipped out to the customer designated delivery address.</p>
                                         </div>
                                         <p className="text-sm text-gray-400 dark:text-zink-200 shrink-0">04 Nov, 2023</p>
                                     </div>
@@ -259,7 +259,7 @@ const OrderOverview = () => {
                                     <div className="flex gap-4">
                                         <div className="grow">
                                             <h6 className="mb-2 text-gray-800 text-15 dark:text-zink-50">Delivered</h6>
-                                            <p className="text-gray-400 dark:text-zink-200">Finally, when the order successfully reaches the customer's address and is handed over, the status changes to "Delivered."</p>
+                                            <p className="text-gray-400 dark:text-zink-200">Finally, when the order successfully reaches the customer address and is handed over, the status changes to Delivered.</p>
                                         </div>
                                         <p className="text-sm text-gray-400 dark:text-zink-200 shrink-0">09 Nov, 2023</p>
                                     </div>

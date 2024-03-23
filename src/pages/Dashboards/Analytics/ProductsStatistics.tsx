@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import TableContainer from 'Common/TableContainer';
 import React, { useMemo, useState } from 'react';
 import { ProductsStatisticsData } from "Common/data";

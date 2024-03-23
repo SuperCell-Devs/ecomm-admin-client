@@ -286,7 +286,7 @@ const DatetimeChart = ({ chartId }: any) => {
             [1361919600000, 39.60],
         ]
     }];
-    var options : any = {
+    const options : any = {
     chart: {
         id: 'area-datetime',
         type: 'area',

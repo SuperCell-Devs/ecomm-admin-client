@@ -214,7 +214,7 @@ const VendorsAddNew = () => {
                                             {
                                                 (selectfiles || [])?.map((file: any, index: number) => {
                                                     return (
-                                                        <li className="mt-5" id="dropzone-preview-list2">
+                                                        <li key={index} className="mt-5" id="dropzone-preview-list2">
                                                             <div className="border rounded border-slate-200 dark:border-zink-500">
                                                                 <div className="p-2 text-center">
                                                                     <div>
@@ -320,7 +320,7 @@ const VendorsAddNew = () => {
                             <div className="mt-3">
                                 <h5 className="mb-2">$145.99 <small className="font-normal line-through">299.99</small></h5>
                                 <h6 className="mb-1 text-15">Fastcolors Typography Men</h6>
-                                <p className="text-slate-500 dark:text-zink-200">Men's Fashion</p>
+                                <p className="text-slate-500 dark:text-zink-200">Men&apos;s Fashion</p>
                             </div>
                             <h6 className="mt-3 mb-2 text-15">Colors</h6>
                             <div className="flex flex-wrap items-center gap-2">

@@ -113,7 +113,7 @@ const ColumnMarkers = ({ chartId }: any) => {
             ]
         }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'bar'

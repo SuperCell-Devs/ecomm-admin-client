@@ -44,7 +44,7 @@ export const postFakeProfile = (data: any) => api.create(url.POST_EDIT_PROFILE, 
 export const postJwtRegister = (url: any, data: any) => {
   return api.create(url, data)
     .catch((err: any) => {
-      var message;
+      let message;
       if (err.response && err.response.status) {
         switch (err.response.status) {
           case 404:

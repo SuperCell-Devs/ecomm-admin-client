@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import React, { useCallback, useEffect, useState } from "react";
 import BreadCrumb from "Common/BreadCrumb";
 import FullCalendar from "@fullcalendar/react";
@@ -205,7 +206,7 @@ const MultiMonthStack = () => {
                 dialogClassName="w-screen md:w-[30rem] bg-white shadow rounded-md dark:bg-zink-600">
                 <Modal.Header className="flex items-center justify-between p-4 border-b dark:border-zink-500"
                     closeButtonClass="transition-all duration-200 ease-linear text-slate-400 hover:text-red-500">
-                    <Modal.Title className="text-16">{!!isEdit ? "Edit Event" : "Add Event"}</Modal.Title>
+                    <Modal.Title className="text-16">{isEdit ? "Edit Event" : "Add Event"}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
                     <form className="needs-validation" name="event-form" id="form-event" onSubmit={(e) => {
@@ -247,7 +248,7 @@ const MultiMonthStack = () => {
                         <div className="flex justify-end gap-2 mt-4">
                             <button type="reset" className="text-red-500 bg-white btn hover:text-red-500 hover:bg-red-100 focus:text-red-500 focus:bg-red-100 active:text-red-500 active:bg-red-100 dark:bg-zink-600 dark:hover:bg-red-500/10 dark:focus:bg-red-500/10 dark:active:bg-red-500/10" onClick={toggle}>Cancel</button>
                             {!!isEdit && <button type="reset" id="btn-delete-event" className="text-white bg-red-500 border-red-500 btn hover:text-white hover:bg-red-600 hover:border-red-600 focus:text-white focus:bg-red-600 focus:border-red-600 focus:ring focus:ring-red-100 active:text-white active:bg-red-600 active:border-red-600 active:ring active:ring-red-100 dark:ring-custom-400/20" onClick={onClickDelete}>Delete</button>}
-                            <button type="submit" id="btn-save-event" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">{!!isEdit ? "Update" : "Add Event"}</button>
+                            <button type="submit" id="btn-save-event" className="text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">{isEdit ? "Update" : "Add Event"}</button>
                         </div>
                     </form>
                 </Modal.Body>
