@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import useChartColors from "Common/useChartColors";
@@ -7,7 +8,8 @@ const WidgetChart = ({ series, chartId, DataChartColor }: any) => {
     const chartColors = useChartColors(chartId);
 
     //sent email
-    var options: any = {
+    // eslint-disable-next-line prefer-const
+    let options: any = {
         chart: {
             id: 'area-datetime',
             type: 'line',
@@ -49,7 +51,7 @@ const Widget2Chart = ({ series, chartId, DataChartColor }: any) => {
     const chartColors = useChartColors(chartId);
 
     //sent email
-    var options: any = {
+    const options: any = {
         chart: {
             id: 'area-datetime',
             type: 'bar',
@@ -102,7 +104,7 @@ const EmailDataChart = ({ chartId }: any) => {
             data: [26, 41, 40, 51, 49, 62, 69, 52, 58]
         }
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'line',
@@ -163,7 +165,7 @@ const EmailMarketingChart = ({ chartId }: any) => {
 
     //email marketing chart
     const series = [44, 55, 67];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 410,
             type: 'radialBar',

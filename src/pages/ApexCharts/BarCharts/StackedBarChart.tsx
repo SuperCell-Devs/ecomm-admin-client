@@ -22,7 +22,7 @@ const StackedBarChart = ({ chartId }: any) => {
         name: 'Reborn Kid',
         data: [25, 12, 19, 32, 25, 24, 10]
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'bar',
             height: 350,

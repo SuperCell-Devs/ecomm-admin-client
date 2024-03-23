@@ -58,7 +58,7 @@ class APIClient {
   get = (url: any, params: any) => {
     let response;
 
-    let paramKeys: any = [];
+    const paramKeys: any = [];
 
     if (params) {
       Object.keys(params).map(key => {
@@ -109,7 +109,7 @@ export class ProductsApi {
     get = (url: any, params: any) => {
       let response;
 
-      let paramKeys: any = [];
+      const paramKeys: any = [];
 
       if (params) {
         Object.keys(params).map(key => {
@@ -160,7 +160,7 @@ export class BrandsApi {
     get = async (url: any, params?: any) => {
       let response: Paginated<IBrand>;
 
-      let paramKeys: any = [];
+      const paramKeys: any = [];
 
       if (params) {
         Object.keys(params).map(key => {
@@ -211,7 +211,7 @@ export class CountryApi {
     get = (url: any, params: any) => {
       let response;
 
-      let paramKeys: any = [];
+      const paramKeys: any = [];
 
       if (params) {
         Object.keys(params).map(key => {
@@ -262,7 +262,7 @@ export class DistrictApi{
     get = (url: any, params: any) => {
       let response;
 
-      let paramKeys: any = [];
+      const paramKeys: any = [];
 
       if (params) {
         Object.keys(params).map(key => {
@@ -313,7 +313,7 @@ export class VendorsApi{
    get = (url: any, params: any) => {
      let response;
 
-     let paramKeys: any = [];
+     const paramKeys: any = [];
 
      if (params) {
        Object.keys(params).map(key => {

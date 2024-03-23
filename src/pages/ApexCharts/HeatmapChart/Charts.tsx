@@ -3,11 +3,11 @@ import ReactApexChart from "react-apexcharts";
 import useChartColors from "Common/useChartColors";
 
 function generateData(count: any, yrange: any) {
-    var i = 0;
-    var series = [];
+    let i = 0;
+    const series = [];
     while (i < count) {
-        var x = (i + 1).toString();
-        var y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+        const x = (i + 1).toString();
+        const y = Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
 
         series.push({
             x: x,
@@ -87,7 +87,7 @@ const BasicHeatmap = ({ chartId }: any) => {
         })
     }
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'heatmap',
@@ -117,7 +117,7 @@ const MultipleColors = ({ chartId }: any) => {
 
     const chartColors = useChartColors(chartId);
 
-    var data = [{
+    const data = [{
         name: 'W1',
         data: generateData(8, {
             min: 0,
@@ -225,7 +225,7 @@ const MultipleColors = ({ chartId }: any) => {
     ];
 
     const series = data;
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'heatmap',
@@ -336,7 +336,7 @@ const ColorRange = ({ chartId }: any) => {
         })
     }
     ];
-    var options: any = {
+    const options: any = {
         chart: {
             height: 350,
             type: 'heatmap',
@@ -444,7 +444,7 @@ const RoundedChart = ({ chartId }: any) => {
         })
     }
     ];
-    var options : any = {
+    const options : any = {
         chart: {
             height: 350,
             type: 'heatmap',

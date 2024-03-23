@@ -12,7 +12,7 @@ const SimplePie = ({ chartId }: any) => {
   const chartColors = useChartColors(chartId);
 
   const series = [44, 55, 13, 43, 22];
-  var options: any = {
+  const options: any = {
     chart: {
       height: 350,
       type: 'pie',
@@ -44,7 +44,7 @@ const SimpleDonut = ({ chartId }: any) => {
   const chartColors = useChartColors(chartId);
 
   const series = [44, 55, 41, 17, 15];
-  var options: any = {
+  const options: any = {
     chart: {
       height: 350,
       type: 'donut',
@@ -76,7 +76,7 @@ const DonutUpdate = ({ chartId }: any) => {
   const chartColors = useChartColors(chartId);
 
   const series = [44, 55, 13, 33];
-  var options: any = {
+  const options: any = {
     chart: {
       width: 380,
       type: 'donut',
@@ -123,7 +123,7 @@ const MonochromePie = ({ chartId }: any) => {
   const chartColors = useChartColors(chartId);
 
   const series = [25, 15, 44, 55, 41, 17];
-  var options: any = {
+  const options: any = {
     chart: {
       height: 300,
       width: '100%',
@@ -176,7 +176,7 @@ const GradientDonut = ({ chartId }: any) => {
   const chartColors = useChartColors(chartId);
 
   const series = [44, 55, 41, 17, 15];
-  var options: any = {
+  const options: any = {
     chart: {
       height: 280,
       type: 'donut',
@@ -222,7 +222,7 @@ const SemiDonut = ({ chartId }: any) => {
   const chartColors = useChartColors(chartId);
 
   const series = [44, 55, 41, 17, 15];
-  var options: any = {
+  const options: any = {
     chart: {
       height: 280,
       type: 'donut'
@@ -265,7 +265,7 @@ const PatternDonut = ({ chartId }: any) => {
   const chartColors = useChartColors(chartId);
 
   const series = [44, 55, 41, 17, 15];
-  var options: any = {
+  const options: any = {
     chart: {
       height: 350,
       type: 'donut',
@@ -343,7 +343,7 @@ const ImagePie = ({ chartId }: any) => {
   const chartColors = useChartColors(chartId);
 
   const series = [44, 33, 54, 45];
-  var options: any = {
+  const options: any = {
     chart: {
       height: 350,
       type: 'pie',

@@ -10,7 +10,7 @@ const Contact = () => {
                     <div className="grid items-center grid-cols-1 gap-5 lg:grid-cols-12">
                         <div className="lg:col-span-9">
                             <h1 className="mb-4 leading-normal capitalize text-custom-50">Ready to get started with Tailwick</h1>
-                            <p className="text-lg text-custom-200">Tell us which describes you, and we'll get in touch with next steps.</p>
+                            <p className="text-lg text-custom-200">Tell us which describes you, and we ll get in touch with next steps.</p>
                         </div>
                         <div className="ltr:lg:text-right rtl:lg:text-left lg:col-span-3">
                             <button type="button" className="py-2.5 px-6 text-base transition-all duration-200 ease-linear bg-white text-custom-500 btn border-white hover:text-custom-600 hover:bg-white hover:border-white z-10 relative">

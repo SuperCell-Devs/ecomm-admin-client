@@ -76,7 +76,7 @@ const Footer = () => {
                                     <a href="#!" className="relative inline-block transition-all duration-200 ease-linear text-slate-400 dark:text-zink-200 hover:text-slate-300 dark:hover:text-zink-50 before:absolute before:border-b before:border-slate-500 dark:before:border-zink-500 before:inset-x-0 before:bottom-0 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:ease-linear">Blog</a>
                                 </li>
                                 <li>
-                                    <a href="#!" className="relative inline-block transition-all duration-200 ease-linear text-slate-400 dark:text-zink-200 hover:text-slate-300 dark:hover:text-zink-50 before:absolute before:border-b before:border-slate-500 dark:before:border-zink-500 before:inset-x-0 before:bottom-0 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:ease-linear">FAQ's</a>
+                                    <a href="#!" className="relative inline-block transition-all duration-200 ease-linear text-slate-400 dark:text-zink-200 hover:text-slate-300 dark:hover:text-zink-50 before:absolute before:border-b before:border-slate-500 dark:before:border-zink-500 before:inset-x-0 before:bottom-0 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:ease-linear">FAQs</a>
                                 </li>
                                 <li>
                                     <a href="#!" className="relative inline-block transition-all duration-200 ease-linear text-slate-400 dark:text-zink-200 hover:text-slate-300 dark:hover:text-zink-50 before:absolute before:border-b before:border-slate-500 dark:before:border-zink-500 before:inset-x-0 before:bottom-0 before:w-0 hover:before:w-full before:transition-all before:duration-300 before:ease-linear">Help Center</a>
@@ -106,7 +106,7 @@ const Footer = () => {
                                         <h6 className="text-base font-medium transition-all duration-200 ease-linear text-slate-300 group-hover/items:text-custom-500">English</h6>
                                     </button>
 
-                                    <div className="absolute z-50 hidden p-3 mt-1 text-left list-none bg-white rounded-md shadow-md dropdown-menu min-w-[9rem] flex flex-col gap-3 dark:bg-zink-600" aria-labelledby="dropdownMenuButton">
+                                    <div className="absolute z-50 hidden p-3 mt-1 text-left list-none bg-white rounded-md shadow-md dropdown-menu min-w-[9rem] flex-col gap-3 dark:bg-zink-600" aria-labelledby="dropdownMenuButton">
                                         <a href="#!" className="flex items-center gap-3 group/items">
                                             <img src={us} alt="" className="object-cover h-4 rounded-full" />
                                             <h6 className="text-sm font-medium transition-all duration-200 ease-linear text-slate-600 dark:text-zink-100 group-hover/items:text-custom-500 dark:group-hover/items:text-custom-500">English</h6>

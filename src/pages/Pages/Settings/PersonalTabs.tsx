@@ -2,7 +2,7 @@ import React from "react";
 import Select from 'react-select';
 import Flatpickr from "react-flatpickr";
 
-interface Option { label: string; value: string; isDisabled?: boolean };
+interface Option { label: string; value: string; isDisabled?: boolean }
 
 const DefaultOptions: Option[] = [
     { label: "Choice 1", value: "Choice 1" },

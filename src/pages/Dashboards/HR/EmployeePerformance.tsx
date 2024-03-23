@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useMemo, useState } from 'react';
 import TableContainer from 'Common/TableContainer';
 import { Link } from 'react-router-dom';

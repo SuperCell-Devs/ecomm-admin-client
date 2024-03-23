@@ -11,7 +11,7 @@ const CandlestickSynced = ({ chartId }: any) => {
     const series = [{
         data: seriesData1
     }];
-    var options : any = {
+    const options : any = {
         chart: {
             type: 'candlestick',
             height: 200,
@@ -62,7 +62,7 @@ const ComboCandlestick = ({ chartId }: any) => {
         name: 'volume',
         data: seriesDataLinear
     }];
-    var optionsBar : any = {
+    const optionsBar : any = {
         chart: {
             height: 140,
             type: 'bar',

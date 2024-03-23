@@ -54,7 +54,7 @@ const BasicCreatePassword = () => {
                                 <button type="submit" className="w-full text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Reset Password</button>
                             </div>
                             <div className="mt-4 text-center">
-                                <p className="mb-0">Hold on, I've got my password... <Link to="/auth-login-basic" className="underline fw-medium text-custom-500"> Click here </Link> </p>
+                                <p className="mb-0">Hold on, I ve got my password... <Link to="/auth-login-basic" className="underline fw-medium text-custom-500"> Click here </Link> </p>
                             </div>
                         </form>
                     </div>
