@@ -62,7 +62,7 @@ const BrandEdit = () => {
         if(id){
             dispatch(onGetOneBrand({ id: parseInt(id) }));
         }
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     useEffect(() => {     
         setData(dataList);

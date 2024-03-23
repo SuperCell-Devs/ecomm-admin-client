@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Dropdown } from "Common/Components/Dropdown";
 
 // Icon
-import { MoreHorizontal, Eye, FileEdit, Trash2, Search, Plus } from 'lucide-react';
+import { MoreHorizontal, FileEdit, Search, Plus } from 'lucide-react';
 
 import TableContainer from "Common/TableContainer";
 // import DeleteModal from "Common/DeleteModal";

@@ -55,7 +55,7 @@ const CountryAddNew = () => {
         if(id){
             dispatch(onGetOneCountry({ id: parseInt(id) }));
         }
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     useEffect(() => {     
         setData(dataList);

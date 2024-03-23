@@ -103,7 +103,7 @@ const FormColorPicker: React.FC = () => {
         return () => {
             eventListeners.forEach((removeListener) => removeListener());
         };
-    }, [contentRefs]);
+    }, [contentRefs, handleOutsideClick]);
 
     return (
         <React.Fragment>

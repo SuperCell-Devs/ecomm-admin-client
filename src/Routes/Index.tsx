@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { authProtectedRoutes, publicRoutes } from './allRoutes';
 import Layout from 'Layout';
 import NonAuthLayout from "Layout/NonLayout"
-import AuthProtected from './AuthProtected';
+// import AuthProtected from './AuthProtected';
 
 const RouteIndex = () => {
   return (

@@ -1,5 +1,5 @@
 import { APIClient, BrandsApi, CountryApi, DistrictApi, ProductsApi, VendorsApi } from "./api_helper";
-import { IBrand, IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IPostBrand, IPostDistrict, IPutCountry, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps, Paginated } from "./interface/api";
+import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IPostBrand, IPostDistrict, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps } from "./interface/api";
 
 import * as url from "./url_helper";
 
