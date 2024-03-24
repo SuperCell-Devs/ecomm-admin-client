@@ -24,8 +24,8 @@ export interface Paginated<T> {
 
 interface IBrandLogo {
   path?: string;
-  imageType: any;
-  aspectRatio: any;
+  imageType?: any;
+  aspectRatio?: any;
 }
 interface Brand {
   nameAr: string;

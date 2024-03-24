@@ -31,7 +31,8 @@ import {
     addVendorsList as addVendorsListApi,
     getVendorsList as getVendorsListApi,
     deleteVendorsList as deleteVendorsListApi,
-    updateVendorsList as updateVendorsListApi  
+    updateVendorsList as updateVendorsListApi,
+    uploadFile as uploadFileApi
 
 } from "../../helpers/fakebackend_helper";
 import { toast } from "react-toastify";
@@ -356,6 +357,16 @@ export const deleteVendorsList = createAsyncThunk("ecommerce/deleteVendorsList",
         return response;
     } catch (error) {
         toast.error("Data deleted Failed", { autoClose: 2000 });
+        return error;
+    }
+});
+
+// File 
+export const uploadFile = createAsyncThunk("ecommerce/uploadFile", async (event: File) => {
+    try {
+        const response = uploadFileApi(event);
+        return response;
+    } catch (error) {
         return error;
     }
 });

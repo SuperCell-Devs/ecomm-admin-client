@@ -1,14 +1,14 @@
-import { APIClient, BrandsApi, CountryApi, DistrictApi, ProductsApi, VendorsApi } from "./api_helper";
+import { APIClient } from "./api_helper";
 import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IPostBrand, IPostDistrict, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps } from "./interface/api";
-
 import * as url from "./url_helper";
 
 
-const productsApi = new ProductsApi();
-const brandsApi = new BrandsApi();
-const countryApi = new CountryApi();
-const districtApi = new DistrictApi();
-const vendorApi = new VendorsApi();
+const productsApi = new APIClient();
+const brandsApi = new APIClient();
+const countryApi = new APIClient();
+const vendorApi = new APIClient();
+const districtApi = new APIClient();
+const fileApi = new APIClient();
 
 const api = new APIClient();
 // Gets the logged in user data from local session
@@ -146,6 +146,10 @@ export const addVendorsList = (data: any) => vendorApi.create(url.ADD_DISTRICT_L
 export const updateVendorsList = (data: any) => vendorApi.update(url.UPDATE_DISTRICT_LIST, data);
 export const deleteVendorsList = (data: any) => vendorApi.delete(url.DELETE_DISTRICT_LIST, { headers: { data } });
 
+// File
+export const uploadFile = (data: File) => {
+    return fileApi.upload(url.UPLOAD_FILE, data);
+};
 
 // // Grid View
 // export const getProductGrid = () => api.get(url.GET_PRODUCT_GRID, null);

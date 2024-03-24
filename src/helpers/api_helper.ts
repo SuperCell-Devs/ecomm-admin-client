@@ -1,5 +1,4 @@
 import axios from "axios";
-import { IBrand, Paginated } from "./interface/api";
 // import { api } from "../config";
 
 axios.defaults.baseURL = "http://95.179.133.4:1769/api/v1/";
@@ -55,7 +54,7 @@ class APIClient {
   //  get = (url, params) => {
   //   return axios.get(url, params);
   // };
-  get = (url: any, params: any) => {
+  get = (url: any, params?: any) => {
     let response;
 
     const paramKeys: any = [];
@@ -80,6 +79,22 @@ class APIClient {
   create = (url: any, data: any) => {
     return axios.post(url, data);
   };
+
+  // File upload
+  upload = (url: any, data: any) => {
+    // Note: we are using Axios automatic serlization.
+      return axios.post(
+        url,
+        {
+          name: `${Date.now()}_image`,
+          file: data
+        }, 
+        { 
+          headers: {
+            'Content-Type': `multipart/form-data;`,
+         }
+        });
+      };
   /**
    * Updates data
    */
@@ -98,260 +113,6 @@ class APIClient {
   };
 }
 
-export class ProductsApi {
-  /**
-     * Fetches data from given url
-     */
-
-    //  get = (url, params) => {
-    //   return axios.get(url, params);
-    // };
-    get = (url: any, params: any) => {
-      let response;
-
-      const paramKeys: any = [];
-
-      if (params) {
-        Object.keys(params).map(key => {
-          paramKeys.push(key + '=' + params[key]);
-          return paramKeys;
-        });
-
-        const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
-        response = axios.get(`${url}?${queryString}`, params);
-      } else {
-        response = axios.get(`${url}`, params);
-      }
-
-      return response;
-    };
-    /**
-     * post given data to url
-     */
-    create = (url: any, data: any) => {
-      return axios.post(url, data);
-    };
-    /**
-     * Updates data
-     */
-    update = (url: any, data: any) => {
-      return axios.patch(url, data);
-    };
-
-    put = (url: any, data: any) => {
-      return axios.put(url, data);
-    };
-    /**
-     * Delete
-     */
-    delete = (url: any, config: any) => {
-      return axios.delete(url, { ...config });
-    };
-}
-
-export class BrandsApi {
-  /**
-     * Fetches data from given url
-     */
-
-    //  get = (url, params) => {
-    //   return axios.get(url, params);
-    // };
-    get = async (url: any, params?: any) => {
-      let response: Paginated<IBrand>;
-
-      const paramKeys: any = [];
-
-      if (params) {
-        Object.keys(params).map(key => {
-          paramKeys.push(key + '=' + params[key]);
-          return paramKeys;
-        });
-
-        const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
-        response = await axios.get(`${url}?${queryString}`, params);
-      } else {
-        response = await axios.get(`${url}`, params);
-      }
-
-      return response;
-    };
-    /**
-     * post given data to url
-     */
-    create = (url: any, data: any) => {
-      return axios.post(url, data);
-    };
-    /**
-     * Updates data
-     */
-    update = (url: any, data: any) => {
-      return axios.patch(url, data);
-    };
-
-    put = (url: any, data: any) => {
-      return axios.put(url, data);
-    };
-    /**
-     * Delete
-     */
-    delete = (url: any, config: any) => {
-      return axios.delete(url, { ...config });
-    };
-}
-
-export class CountryApi {
-  /**
-     * Fetches data from given url
-     */
-
-    //  get = (url, params) => {
-    //   return axios.get(url, params);
-    // };
-    get = (url: any, params: any) => {
-      let response;
-
-      const paramKeys: any = [];
-
-      if (params) {
-        Object.keys(params).map(key => {
-          paramKeys.push(key + '=' + params[key]);
-          return paramKeys;
-        });
-
-        const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
-        response = axios.get(`${url}?${queryString}`, params);
-      } else {
-        response = axios.get(`${url}`, params);
-      }
-
-      return response;
-    };
-    /**
-     * post given data to url
-     */
-    create = (url: any, data: any) => {
-      return axios.post(url, data);
-    };
-    /**
-     * Updates data
-     */
-    update = (url: any, data: any) => {
-      return axios.patch(url, data);
-    };
-
-    put = (url: any, data: any) => {
-      return axios.put(url, data);
-    };
-    /**
-     * Delete
-     */
-    delete = (url: any, config: any) => {
-      return axios.delete(url, { ...config });
-    };
-}
-
-export class DistrictApi{
-   /**
-     * Fetches data from given url
-     */
-
-    //  get = (url, params) => {
-    //   return axios.get(url, params);
-    // };
-    get = (url: any, params: any) => {
-      let response;
-
-      const paramKeys: any = [];
-
-      if (params) {
-        Object.keys(params).map(key => {
-          paramKeys.push(key + '=' + params[key]);
-          return paramKeys;
-        });
-
-        const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
-        response = axios.get(`${url}?${queryString}`, params);
-      } else {
-        response = axios.get(`${url}`, params);
-      }
-
-      return response;
-    };
-    /**
-     * post given data to url
-     */
-    create = (url: any, data: any) => {
-      return axios.post(url, data);
-    };
-    /**
-     * Updates data
-     */
-    update = (url: any, data: any) => {
-      return axios.patch(url, data);
-    };
-
-    put = (url: any, data: any) => {
-      return axios.put(url, data);
-    };
-    /**
-     * Delete
-     */
-    delete = (url: any, config: any) => {
-      return axios.delete(url, { ...config });
-    };
-}
-
-export class VendorsApi{
-  /**
-    * Fetches data from given url
-    */
-
-   //  get = (url, params) => {
-   //   return axios.get(url, params);
-   // };
-   get = (url: any, params: any) => {
-     let response;
-
-     const paramKeys: any = [];
-
-     if (params) {
-       Object.keys(params).map(key => {
-         paramKeys.push(key + '=' + params[key]);
-         return paramKeys;
-       });
-
-       const queryString = paramKeys && paramKeys.length ? paramKeys.join('&') : "";
-       response = axios.get(`${url}?${queryString}`, params);
-     } else {
-       response = axios.get(`${url}`, params);
-     }
-
-     return response;
-   };
-   /**
-    * post given data to url
-    */
-   create = (url: any, data: any) => {
-     return axios.post(url, data);
-   };
-   /**
-    * Updates data
-    */
-   update = (url: any, data: any) => {
-     return axios.patch(url, data);
-   };
-
-   put = (url: any, data: any) => {
-     return axios.put(url, data);
-   };
-   /**
-    * Delete
-    */
-   delete = (url: any, config: any) => {
-     return axios.delete(url, { ...config });
-   };
-}
 const getLoggedUser = () => {
 
   const user = localStorage.getItem("authUser");

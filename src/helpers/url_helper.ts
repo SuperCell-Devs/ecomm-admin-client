@@ -73,6 +73,9 @@ export const ADD_DISTRICT_LIST = "/District";
 export const UPDATE_DISTRICT_LIST = "/District";
 export const DELETE_DISTRICT_LIST = "/District";
 
+// File upload
+export const UPLOAD_FILE = "/File";
+
 
 // // Grid View
 // export const GET_PRODUCT_GRID = "/get-product-grid";
