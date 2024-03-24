@@ -22,11 +22,17 @@ export interface Paginated<T> {
 
 // Brands
 
+interface IBrandLogo {
+  path?: string;
+  imageType: any;
+  aspectRatio: any;
+}
 interface Brand {
   nameAr: string;
   nameEn: string;
   description: string;
   webSite: string;
+  logo: IBrandLogo
 }
 export interface IBrand extends Brand {
   id: number;

@@ -43,10 +43,13 @@ const CountryAddNew = () => {
             }),
     
             onSubmit: (values, {resetForm}) => {
-                setLoading(true);
-                dispatch(onEditCountryList({data: values, id: 4}));
-                resetForm();
-                setLoading(false);
+                if(id){
+                    setLoading(true);
+                    dispatch(onEditCountryList({data: values, id: parseInt(id)}));
+                    resetForm();
+                    setLoading(false);
+                }
+               
             },
         });
 
