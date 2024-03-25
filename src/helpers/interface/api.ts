@@ -57,20 +57,28 @@ export interface IGetAllCountryProps { name?: string, page?: number, pageSize?: 
 export interface IGetOneCountryProps { id: number }
 export interface IUpdateCountryProps { id: number, data: Partial<Country> }
 
-// Districts
+// Province
 export interface Province {
-    nameAr: string;
-    nameEn: string;
-    countryId: number,
-    country: any;
-    districts: any[];
-    id: number;
-    createdAt: Date;
-    updatedAt: Date;
-    deletedAt: Date;
-    isDeleted: boolean;
+  nameAr: string;
+  nameEn: string;
+  countryId: ICountry;
 }
 
+export interface IProvincePost {
+  nameAr: string;
+  nameEn: string;
+  countryId: number;
+}
+
+export interface IPutProvince extends Province {}
+export interface IGetAllProvinceProps { name?: string, countryId?: number, page?: number, pageSize?: number }
+export interface IGetOneProvinceProps { id: number }
+export interface IUpdateProvinceProps { id: number, data: Partial<IProvincePost> }
+
+
+
+
+// Districts
 
 export interface District {
   nameAr: string;

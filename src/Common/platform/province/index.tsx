@@ -9,7 +9,8 @@ import { MoreHorizontal,
     // Eye 
     FileEdit, 
     // Trash2,
-     Search, Plus } from 'lucide-react';
+    Search, Plus, 
+    } from 'lucide-react';
 
 import TableContainer from "Common/TableContainer";
 // import DeleteModal from "Common/DeleteModal";
@@ -19,43 +20,68 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
 import {
-    getBrandsList as onGetBrandsList,
+    getProvinceList as onGetProvinceList,
+    getCountryList as onGetCountryList
     // deleteBrandsList as onDeleteBrnadsList
 } from 'slices/thunk';
 // import filterDataBySearch from "Common/filterDataBySearch";
-import { IBrand, Paginated } from "helpers/interface/api";
+import { ICountry, Paginated, Province } from "helpers/interface/api";
+import Select from "react-select";
 
-const BrandListView = () => {
+// import Select from "react-select/dist/declarations/src/Select";
+
+export interface Options {
+    label: string; value?: string; isDisabled?: boolean; options?: Options[];
+}
+
+
+const ProvinceListView = () => {
 
     const dispatch = useDispatch<any>();
 
     const [search, setSearch] = useState<string>("");
+    const [countrySearch, setCountrySearc] = useState<number>();
 
-    const selectDataList = createSelector(
+    const selectProvinceDataList = createSelector(
         (state: any) => state.Ecommerce,
         (state) => ({
-            dataList: state.brands
+            dataList: state.province
         })
     );
 
-    const { dataList } = useSelector(selectDataList);
+    const selectCountryDataList = createSelector(
+        (state: any) => state.Ecommerce,
+        (state) => ({
+            dataList: state.country
+        })
+    );
+
+
+    const { dataList: provinceDataList } = useSelector(selectProvinceDataList);
+    const { dataList: countryDataList } = useSelector(selectCountryDataList);
         
-    const [data, setData] = useState<Paginated<IBrand[]>>();
+    const [data, setData] = useState<Paginated<Province[]>>();
+    const [countryData, setCountryData] = useState<Paginated<ICountry[]>>();
     // const [eventData, setEventData] = useState();
     
     // Get Data
     useEffect(() => {
-        dispatch(onGetBrandsList());
+        dispatch(onGetProvinceList()); 
+        dispatch(onGetCountryList());
     }, [dispatch]);
 
     useEffect(() => {     
-        setData(dataList);
-    }, [dataList]);
+        setData(provinceDataList);
+    }, [provinceDataList]);
+
+    useEffect(() => {     
+        setCountryData(countryDataList);
+    }, [countryDataList]);
 
     const handleDataSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearch(value);
-        dispatch(onGetBrandsList({name: value}));
+        dispatch(onGetProvinceList({ name: value, countryId: countrySearch }));
     }
 
     // Delete Modal
@@ -85,6 +111,7 @@ const BrandListView = () => {
     // };
 
 
+    // Table columns
     const columns = useMemo(() => [
         {
             header: "Name Arabic",
@@ -105,35 +132,13 @@ const BrandListView = () => {
             ),
         },
         {
-            header: "Description",
-            accessorKey: "description",
+            header: "Country",
+            accessorKey: "country",
             enableColumnFilter: false,
             enableSorting: false,
             cell: (cell: any) => (
-                <span className="category px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-slate-100 border-slate-200 text-slate-500 dark:bg-slate-500/20 dark:border-slate-500/20 dark:text-zink-200">{cell.getValue()}</span>
+                <span className="category px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-slate-100 border-slate-200 text-slate-500 dark:bg-slate-500/20 dark:border-slate-500/20 dark:text-zink-200">{cell.getValue()?.arName}</span>
             ),
-        },
-        {
-            header: "Website",
-            accessorKey: "webSite",
-            enableColumnFilter: false,
-            enableSorting: false,
-            cell: (cell: any) => (
-                <span className="category px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-slate-100 border-slate-200 text-slate-500 dark:bg-slate-500/20 dark:border-slate-500/20 dark:text-zink-200">{cell.getValue()}</span>
-            ),
-        },
-        {
-            header: "Logo",
-            accessorKey: "logo",
-            enableColumnFilter: false,
-            enableSorting: false,
-            cell: (cell: any) => {
-                return (<img
-                    src={cell.getValue().path}
-                    alt="logo"
-                    className="avatar-md rounded-circle img-thumbnail"
-                  />);
-            } 
         },
         {
             header: "Action",
@@ -152,7 +157,7 @@ const BrandListView = () => {
                                 <Link 
                                 className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 
                                 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 
-                                dark:focus:bg-zink-500 dark:focus:text-zink-200" to={`/brands-edit/${cell.getValue()}`}><FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
+                                dark:focus:bg-zink-500 dark:focus:text-zink-200" to={`/province-edit/${cell.getValue()}`}><FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
                             </li>
                             {/* <li>
                                 <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!" onClick={() => {
@@ -168,16 +173,27 @@ const BrandListView = () => {
     ], []
     );
     
+
+    // react-select options parser (Country selector)
+    interface Options {
+        label: string; value?: string; isDisabled?: boolean; options?: Options[];
+    }
+    const selectedCountry = countryData?.results?.find(e => e.id === countrySearch)
+    let paresToOption: Options = {value: "", label: ""};
+    if(selectedCountry)
+        paresToOption = { value: String(selectedCountry?.id), label: selectedCountry?.arName }; 
+ 
     
     return (
         <React.Fragment>
-            <BreadCrumb title='Brands' pageTitle='Dashboard' />
+            <BreadCrumb title='Provinces' pageTitle='Dashboard' />
             {/* <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} /> */}
             <div className="card" id="productListTable">
                 <div className="card-body">
                     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:grid-cols-12">
                         <div className="xl:col-span-3">
                             <div className="relative">
+                                {/* Searc by name */}
                                 <input 
                                 type="text"
                                  className="ltr:pl-8 rtl:pr-8 search 
@@ -194,29 +210,31 @@ const BrandListView = () => {
 
                                 <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
                             </div>
+                        
                         </div>
-                        {/* <div className="xl:col-span-2">
-                            <div>
-                                <Flatpickr
-                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                    options={{
-                                        dateFormat: "d M, Y",
-                                        mode: "range",
-                                    }}
-                                    placeholder='Select date'
-                                    readOnly={true}
+                   
+                        <div className="xl:col-span-2">
+                            <Select
+                                className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices name="choices-single-default"
+                                options={countryData?.results?.map((e) => ( {value: e.id, label: e.arName, isDisabled: false, options: []}))}
+                                onChange={(e) => {
+                                    if (e?.value)
+                                        setCountrySearc(parseInt(e?.value));
+                                } }
+                                isMulti={false}
+                                value={paresToOption}
+                                
                                 />
-                            </div>
-                        </div> */}
+                        </div>
                         <div className="lg:col-span-2 ltr:lg:text-right rtl:lg:text-left xl:col-span-2 xl:col-start-11">
-                            <Link to="/brands-add" type="button" 
+                            <Link to="/province-add" type="button" 
                             className="text-white btn bg-custom-500 border-custom-500
                              hover:text-white hover:bg-custom-600 hover:border-custom-600
                               focus:text-white focus:bg-custom-600 focus:border-custom-600 
                               focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 
                               active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
                                 <Plus className="inline-block size-4" />
-                                 <span className="align-middle">Add Brand</span></Link>
+                                 <span className="align-middle">Add Province</span></Link>
                         </div>
                     </div>
                 </div>
@@ -247,4 +265,4 @@ const BrandListView = () => {
     );
 };
 
-export default BrandListView;
+export default ProvinceListView;

@@ -1,5 +1,5 @@
 import { APIClient } from "./api_helper";
-import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IPostBrand, IPostDistrict, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps } from "./interface/api";
+import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetAllProvinceProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IGetOneProvinceProps, IPostBrand, IPostDistrict, IProvincePost, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps, IUpdateProvinceProps } from "./interface/api";
 import * as url from "./url_helper";
 
 
@@ -8,6 +8,7 @@ const brandsApi = new APIClient();
 const countryApi = new APIClient();
 const vendorApi = new APIClient();
 const districtApi = new APIClient();
+const provinceApi = new APIClient();
 const fileApi = new APIClient();
 
 const api = new APIClient();
@@ -122,6 +123,15 @@ export const getOneBrand = (props: IGetOneBrandProps) => brandsApi.get(`${url.GE
 export const addBrandsList = (data: IPostBrand) => brandsApi.create(url.ADD_BRANDS_LIST, data);
 export const updateBrandsList = (body: IUpdateBrandProps) => brandsApi.put(`${url.UPDATE_BRANDS_LIST}/${body.id}`, body.data);
 export const deleteBrandsList = (data: any) => brandsApi.delete(url.DELETE_BRANDS_LIST, { headers: { data } });
+
+
+// Province
+export const getProvinceList = (props? : IGetAllProvinceProps) => provinceApi.get(url.GET_PROVINCE_LIST, props);
+export const getOneProvince = (props: IGetOneProvinceProps) => provinceApi.get(`${url.GET_PROVINCE_LIST}/${props.id}`);
+export const addProvinceList = (data: IProvincePost) => provinceApi.create(url.ADD_PROVINCE_LIST, data);
+export const updateProvinceList = (body: IUpdateProvinceProps) => provinceApi.put(`${url.UPDATE_PROVINCE_LIST}/${body.id}`, body.data);
+export const deleteProvinceList = (data: any) => provinceApi.delete(url.DELETE_PROVINCE_LIST, { headers: { data } });
+
 
 
 // Country

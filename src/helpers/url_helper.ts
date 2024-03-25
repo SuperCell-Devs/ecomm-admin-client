@@ -67,6 +67,12 @@ export const ADD_COUNTRYS_LIST = "/Country";
 export const UPDATE_COUNTRYS_LIST = "/Country";
 export const DELETE_COUNTRYS_LIST = "/Country";
 
+// Province
+export const GET_PROVINCE_LIST = "/Province";
+export const ADD_PROVINCE_LIST = "/Province";
+export const UPDATE_PROVINCE_LIST = "/Province";
+export const DELETE_PROVINCE_LIST = "/Province";
+
 // Districts
 export const GET_DISTRICT_LIST = "/District";
 export const ADD_DISTRICT_LIST = "/District";

@@ -49,7 +49,7 @@ const BrandAddNew = () => {
             onSubmit: (values, {resetForm}) => {
                 setLoading(true);
 
-                if (selectedFiles) {
+                if (selectedFiles?.length && selectedFiles?.length > 0) {
                   // Dispatch onFileUpload action
                   dispatch(onfileUpload(selectedFiles[0])).then((response: any) => {
 
@@ -63,8 +63,6 @@ const BrandAddNew = () => {
                     toast.error("File upload failed", {autoClose: 3000});
                   });
                 }
-
-                
                 // Dispatch onAddBrandsList action
                 dispatch(onAddBrandsList(values));
           
@@ -123,7 +121,7 @@ const BrandAddNew = () => {
                                         <textarea
                                             onChange={validation.handleChange}
                                             value={validation.values.description || ""} 
-                                            id="description" className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Brand description" ></textarea>
+                                            id="description" className="max-h-60 form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Brand description" ></textarea>
                                         {validation.touched.description && validation.errors.description ?  <p className="text-red-400">{validation.errors.description}</p>:null}
                                     </div>
                                     

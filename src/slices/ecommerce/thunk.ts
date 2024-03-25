@@ -32,12 +32,16 @@ import {
     getVendorsList as getVendorsListApi,
     deleteVendorsList as deleteVendorsListApi,
     updateVendorsList as updateVendorsListApi,
-    uploadFile as uploadFileApi
-
+    uploadFile as uploadFileApi,
+    addProvinceList as addProvinceListApi,
+    getProvinceList as getProvinceListApi, 
+    getOneProvince as getOneProvinceApi,
+    updateProvinceList as updateProvinceListApi,
+    deleteProvinceList as deleteProvinceListApi
 } from "../../helpers/fakebackend_helper";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IUpdateCountryProps } from "helpers/interface/api";
+import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetAllProvinceProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IGetOneProvinceProps, IUpdateCountryProps } from "helpers/interface/api";
 
 export const getOrders = createAsyncThunk("ecommerce/getOrders", async () => {
     try {
@@ -198,10 +202,10 @@ export const updateBrandsList = createAsyncThunk("ecommerce/updateBrandsList", a
     try {
         const response = await updateBrandsListApi(event);
         const data = response;
-        toast.success("Data updated Successfully", { autoClose: 2000 });
+        toast.success("Brand updated Successfully", { autoClose: 2000 });
         return data;
     } catch (error) {
-        toast.error("Data updated Failed", { autoClose: 2000 });
+        toast.error("Brand update has Failed", { autoClose: 2000 });
         return error;
     }
 });
@@ -367,6 +371,58 @@ export const uploadFile = createAsyncThunk("ecommerce/uploadFile", async (event:
         const response = uploadFileApi(event);
         return response;
     } catch (error) {
+        return error;
+    }
+});
+
+
+
+// Province
+export const getProvinceList = createAsyncThunk("ecommerce/getProvinceList", async (props? : IGetAllProvinceProps) => {
+    try {
+        const response = await getProvinceListApi(props);
+        return response;
+    } catch (error) {
+        return error;
+    }
+});
+export const getOneProvince = createAsyncThunk("ecommerce/getOneProvince", async (props : IGetOneProvinceProps) => {
+    try {
+        const response = await getOneProvinceApi(props);
+        return response;
+    } catch (error) {
+        return error;
+    }
+});
+export const addProvinceList = createAsyncThunk("ecommerce/addProvinceList", async (event: any) => {
+    try {
+        const response = await addProvinceListApi(event);
+        const data = response;
+        toast.success("Data Added Successfully", { autoClose: 2000 });
+        return data;
+    } catch (error) {
+        toast.error("Data Added Failed", { autoClose: 2000 });
+        return error;
+    }
+});
+export const updateProvinceList = createAsyncThunk("ecommerce/updateProvinceList", async (event: any) => {
+    try {
+        const response = await updateProvinceListApi(event);
+        const data = response;
+        toast.success("Brand updated Successfully", { autoClose: 2000 });
+        return data;
+    } catch (error) {
+        toast.error("Brand update has Failed", { autoClose: 2000 });
+        return error;
+    }
+});
+export const deleteProvinceList = createAsyncThunk("ecommerce/deleteProvinceList", async (event: any) => {
+    try {
+        const response = deleteProvinceListApi(event);
+        toast.success("Data deleted Successfully", { autoClose: 2000 });
+        return response;
+    } catch (error) {
+        toast.error("Data deleted Failed", { autoClose: 2000 });
         return error;
     }
 });

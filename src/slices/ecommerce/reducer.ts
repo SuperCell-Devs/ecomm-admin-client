@@ -30,13 +30,19 @@ import {
     getDistrictList,
     updateDistrictList,
     deleteDistrictList,
-    getOneDistrict
+    getOneDistrict,
+    addProvinceList,
+    getProvinceList,
+    deleteProvinceList,
+    getOneProvince,
+    updateProvinceList
 } from './thunk';
 
 export const initialState = {
     brands: [],
     sellers: [],
     products: [],
+    province: [],
     districts: [],
     country: [],
     vendors:[],
@@ -164,7 +170,7 @@ const EcommerceSlice = createSlice({
         });
         
 
-                // districts
+        // districts
         builder.addCase(getDistrictList.fulfilled, (state: any, action: any) => {
             state.districts = action.payload;
         });
@@ -179,6 +185,24 @@ const EcommerceSlice = createSlice({
         
         builder.addCase(updateDistrictList.fulfilled, (state: any, action: any) => {
             state.districts = { ...state.districts, results: action.payload }
+        });
+
+
+        // Province
+        builder.addCase(getProvinceList.fulfilled, (state: any, action: any) => {
+            state.province = action.payload;
+        });
+        
+        builder.addCase(getOneProvince.fulfilled, (state: any, action: any) => {
+            state.province = { ...state.province, results: action.payload };
+        });
+        
+        builder.addCase(addProvinceList.fulfilled, (state: any, action: any) => {
+            state.province = {...state.province, result: action.payload}
+        });
+        
+        builder.addCase(updateProvinceList.fulfilled, (state: any, action: any) => {
+            state.province = { ...state.province, results: action.payload }
         });
                 
 
@@ -238,6 +262,11 @@ const EcommerceSlice = createSlice({
                 getDistrictList.rejected,
                 updateDistrictList.rejected,
                 deleteDistrictList.rejected,
+                updateProvinceList.rejected,
+                addProvinceList.rejected,
+                getProvinceList.rejected,
+                deleteProvinceList.rejected,
+                getOneProvince.rejected,
                 
             ].includes(action.type);
             },

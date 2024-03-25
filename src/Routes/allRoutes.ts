@@ -221,6 +221,9 @@ import CountryListView from "Common/platform/country";
 import DistrictAddNew from "Common/platform/district/add";
 import DistrictEdit from "Common/platform/district/edit";
 import DistrictListView from "Common/platform/district";
+import ProvinceListView from "Common/platform/province";
+import ProvinceAddNew from "Common/platform/province/add";
+import ProvinceEdit from "Common/platform/province/edit";
 
 
 
@@ -264,6 +267,11 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/vendors", component: VendorListView },
   { path: "/vendors-add", component: VendorAddNew },
   { path: "/vendors-edit/:id", component: VendorEdit },
+
+  // Province
+  { path: "/province", component: ProvinceListView },
+  { path: "/province-add", component:  ProvinceAddNew },
+  { path: "/province-edit", component: ProvinceEdit },
 
 
 
