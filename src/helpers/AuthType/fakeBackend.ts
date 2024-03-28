@@ -50,38 +50,38 @@ const fakeBackend = () => {
   const mock = new MockAdapter(axios, { onNoMatch: "passthrough" });
 
   // login
-  mock.onPost(url.POST_FAKE_LOGIN).reply(config => {
-    const user = JSON.parse(config["data"]);
+  // mock.onPost(url.POST_FAKE_LOGIN).reply(config => {
+  //   const user = JSON.parse(config["data"]);
 
-    const validUser = users.filter(
-      usr => usr.email === user.email && usr.password === user.password
-    );
+  //   const validUser = users.filter(
+  //     usr => usr.email === user.email && usr.password === user.password
+  //   );
 
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (validUser["length"] === 1) {
-          resolve([200, validUser[0]]);
-        } else {
-          reject([
-            "Username and password are invalid. Please enter correct username and password",
-          ]);
-        }
-      });
-    });
-  });
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (validUser["length"] === 1) {
+  //         resolve([200, validUser[0]]);
+  //       } else {
+  //         reject([
+  //           "Username and password are invalid. Please enter correct username and password",
+  //         ]);
+  //       }
+  //     });
+  //   });
+  // });
 
   // register
-  mock.onPost(url.POST_FAKE_REGISTER).reply((config: any) => {
-    const user = JSON.parse(config["data"]);
+  // mock.onPost(url.POST_FAKE_REGISTER).reply((config: any) => {
+  //   const user = JSON.parse(config["data"]);
 
-    users.push(user);
+  //   users.push(user);
 
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve([200, user]);
-      });
-    });
-  });
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve([200, user]);
+  //     });
+  //   });
+  // });
 
   // edit profile
   mock.onPost(url.POST_EDIT_PROFILE).reply(config => {

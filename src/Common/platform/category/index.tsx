@@ -24,10 +24,11 @@ import {
 } from 'slices/thunk';
 // import filterDataBySearch from "Common/filterDataBySearch";
 import { IBrand, Paginated } from "helpers/interface/api";
-import { getImagePath } from "../helpers/getImagePath";
 
-const BrandListView = () => {
+const CategoryListView = () => {
 
+    const title = "Category";
+    const titleSmall = title.toLowerCase();
     const dispatch = useDispatch<any>();
 
     const [search, setSearch] = useState<string>("");
@@ -35,7 +36,7 @@ const BrandListView = () => {
     const selectDataList = createSelector(
         (state: any) => state.Ecommerce,
         (state) => ({
-            dataList: state.brands
+            dataList: state[titleSmall]
         })
     );
 
@@ -115,28 +116,6 @@ const BrandListView = () => {
             ),
         },
         {
-            header: "Website",
-            accessorKey: "webSite",
-            enableColumnFilter: false,
-            enableSorting: false,
-            cell: (cell: any) => (
-                <span className="category px-2.5 py-0.5 text-xs inline-block font-medium rounded border bg-slate-100 border-slate-200 text-slate-500 dark:bg-slate-500/20 dark:border-slate-500/20 dark:text-zink-200">{cell.getValue()}</span>
-            ),
-        },
-        {
-            header: "Logo",
-            accessorKey: "logo",
-            enableColumnFilter: false,
-            enableSorting: false,
-            cell: (cell: any) => {
-                return (<img
-                    src={getImagePath(cell.getValue().path)}
-                    alt="logo"
-                    className="avatar-md rounded-circle img-thumbnail"
-                  />);
-            } 
-        },
-        {
             header: "Action",
             accessorKey: "id",
             enableColumnFilter: false,
@@ -153,7 +132,7 @@ const BrandListView = () => {
                                 <Link 
                                 className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 
                                 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 
-                                dark:focus:bg-zink-500 dark:focus:text-zink-200" to={`/brands-edit/${cell.getValue()}`}><FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
+                                dark:focus:bg-zink-500 dark:focus:text-zink-200" to={`/${titleSmall}-edit/${cell.getValue()}`}><FileEdit className="inline-block size-3 ltr:mr-1 rtl:ml-1" /> <span className="align-middle">Edit</span></Link>
                             </li>
                             {/* <li>
                                 <Link className="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" to="#!" onClick={() => {
@@ -172,7 +151,7 @@ const BrandListView = () => {
     
     return (
         <React.Fragment>
-            <BreadCrumb title='Brands' pageTitle='Dashboard' />
+            <BreadCrumb title={title} pageTitle='Dashboard' />
             {/* <DeleteModal show={deleteModal} onHide={deleteToggle} onDelete={handleDelete} /> */}
             <div className="card" id="productListTable">
                 <div className="card-body">
@@ -210,14 +189,14 @@ const BrandListView = () => {
                             </div>
                         </div> */}
                         <div className="lg:col-span-2 ltr:lg:text-right rtl:lg:text-left xl:col-span-2 xl:col-start-11">
-                            <Link to="/brands-add" type="button" 
+                            <Link to={`/${titleSmall}-add`} type="button" 
                             className="text-white btn bg-custom-500 border-custom-500
                              hover:text-white hover:bg-custom-600 hover:border-custom-600
                               focus:text-white focus:bg-custom-600 focus:border-custom-600 
                               focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 
                               active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">
                                 <Plus className="inline-block size-4" />
-                                 <span className="align-middle">Add Brand</span></Link>
+                                 <span className="align-middle">Add {title}</span></Link>
                         </div>
                     </div>
                 </div>
@@ -248,4 +227,4 @@ const BrandListView = () => {
     );
 };
 
-export default BrandListView;
+export default CategoryListView;

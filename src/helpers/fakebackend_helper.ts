@@ -1,4 +1,5 @@
-import { APIClient } from "./api_helper";
+import { User } from "slices/thunk";
+import { APIClient, AuthenticationAPIClient } from "./api_helper";
 import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetAllProvinceProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IGetOneProvinceProps, IPostBrand, IPostDistrict, IProvincePost, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps, IUpdateProvinceProps } from "./interface/api";
 import * as url from "./url_helper";
 
@@ -10,6 +11,7 @@ const vendorApi = new APIClient();
 const districtApi = new APIClient();
 const provinceApi = new APIClient();
 const fileApi = new APIClient();
+const authApi = new AuthenticationAPIClient();
 
 const api = new APIClient();
 // Gets the logged in user data from local session
@@ -27,10 +29,10 @@ export const isUserAuthenticated = () => {
 };
 
 // Register Method
-export const postFakeRegister = (data: any) => api.create(url.POST_FAKE_REGISTER, data);
+export const postRegister = (data: User) => authApi.create(url.POST_REGISTER, data);
 
 // Login Method
-export const postFakeLogin = (data: any) => api.create(url.POST_FAKE_LOGIN, data);
+export const postLogin = (data: any) => authApi.create(url.POST_LOGIN, data);
 
 // postForgetPwd
 export const postFakeForgetPwd = (data: any) => api.create(url.POST_FAKE_PASSWORD_FORGET, data);

@@ -224,6 +224,7 @@ import DistrictListView from "Common/platform/district";
 import ProvinceListView from "Common/platform/province";
 import ProvinceAddNew from "Common/platform/province/add";
 import ProvinceEdit from "Common/platform/province/edit";
+import CategoryListView from "Common/platform/category";
 
 
 
@@ -256,6 +257,11 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/district", component: DistrictListView },
   { path: "/district-add", component: DistrictAddNew },
   { path: "/district-edit/:id", component: DistrictEdit },
+
+   // Category
+   { path: "/category", component: CategoryListView },
+   { path: "/category-add", component: DistrictAddNew },
+   { path: "/category-edit/:id", component: DistrictEdit },
   
 
   // brand

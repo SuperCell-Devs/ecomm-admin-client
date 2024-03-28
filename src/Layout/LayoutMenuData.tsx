@@ -1,5 +1,5 @@
 import React from "react";
-import { Award, MapIcon, LandPlot, MapPinIcon, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound } from "lucide-react";
+import { Award, LibraryBig ,MapIcon, LandPlot, MapPinIcon, CalendarDays, CircuitBoard, Codesandbox, FileText, LifeBuoy, LocateFixed, Mail, Map, MessageSquare, MonitorDot, PackagePlus, PictureInPicture2, PieChart, RadioTower, ScrollText, Share2, ShoppingBag, Table, Trophy, UserRound } from "lucide-react";
 
 const menuData: any = [
     {
@@ -47,6 +47,13 @@ const menuData: any = [
         label: 'Provinces',
         icon: <LandPlot />,
         link: '/province',
+        parentId: 2
+    },
+    {
+        id: 'category',
+        label: 'Category',
+        icon: <LibraryBig />,
+        link: '/category',
         parentId: 2
     },
 
