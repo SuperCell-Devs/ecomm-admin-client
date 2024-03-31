@@ -25,8 +25,8 @@ import {
     // deleteBrandsList as onDeleteBrnadsList
 } from 'slices/thunk';
 // import filterDataBySearch from "Common/filterDataBySearch";
-import { ICountry, Paginated, Province } from "helpers/interface/api";
-import Select from "react-select";
+import { Paginated, Province } from "helpers/interface/api";
+import DropdownData from "../common/DropdownData";
 
 // import Select from "react-select/dist/declarations/src/Select";
 
@@ -40,7 +40,7 @@ const ProvinceListView = () => {
     const dispatch = useDispatch<any>();
 
     const [search, setSearch] = useState<string>("");
-    const [countrySearch, setCountrySearc] = useState<number>();
+    const [country, setCountry] = useState<number>();
 
     const selectProvinceDataList = createSelector(
         (state: any) => state.Ecommerce,
@@ -49,19 +49,9 @@ const ProvinceListView = () => {
         })
     );
 
-    const selectCountryDataList = createSelector(
-        (state: any) => state.Ecommerce,
-        (state) => ({
-            dataList: state.country
-        })
-    );
-
-
     const { dataList: provinceDataList } = useSelector(selectProvinceDataList);
-    const { dataList: countryDataList } = useSelector(selectCountryDataList);
-        
+
     const [data, setData] = useState<Paginated<Province[]>>();
-    const [countryData, setCountryData] = useState<Paginated<ICountry[]>>();
     // const [eventData, setEventData] = useState();
     
     // Get Data
@@ -74,15 +64,17 @@ const ProvinceListView = () => {
         setData(provinceDataList);
     }, [provinceDataList]);
 
-    useEffect(() => {     
-        setCountryData(countryDataList);
-    }, [countryDataList]);
-
     const handleDataSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearch(value);
-        dispatch(onGetProvinceList({ name: value, countryId: countrySearch }));
+        dispatch(onGetProvinceList({ name: value, countryId: country }));
     }
+
+
+    useEffect(() => {     
+        dispatch(onGetProvinceList({ countryId: country }));
+    }, [country]);
+
 
     // Delete Modal
     // const [deleteModal, setDeleteModal] = useState<boolean>(false);
@@ -172,17 +164,10 @@ const ProvinceListView = () => {
         }
     ], []
     );
+
+
     
 
-    // react-select options parser (Country selector)
-    interface Options {
-        label: string; value?: string; isDisabled?: boolean; options?: Options[];
-    }
-    const selectedCountry = countryData?.results?.find(e => e.id === countrySearch)
-    let paresToOption: Options = {value: "", label: ""};
-    if(selectedCountry)
-        paresToOption = { value: String(selectedCountry?.id), label: selectedCountry?.arName }; 
- 
     
     return (
         <React.Fragment>
@@ -208,24 +193,11 @@ const ProvinceListView = () => {
                                 value={search}
                                 />
 
-                                <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
                             </div>
                         
                         </div>
-                   
-                        <div className="xl:col-span-2">
-                            <Select
-                                className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices name="choices-single-default"
-                                options={countryData?.results?.map((e) => ( {value: e.id, label: e.arName, isDisabled: false, options: []}))}
-                                onChange={(e) => {
-                                    if (e?.value)
-                                        setCountrySearc(parseInt(e?.value));
-                                } }
-                                isMulti={false}
-                                value={paresToOption}
-                                
-                                />
-                        </div>
+
+                        <DropdownData data="country" {...{setState: setCountry}}/>
                         <div className="lg:col-span-2 ltr:lg:text-right rtl:lg:text-left xl:col-span-2 xl:col-start-11">
                             <Link to="/province-add" type="button" 
                             className="text-white btn bg-custom-500 border-custom-500
