@@ -67,12 +67,16 @@ const ProvinceListView = () => {
     const handleDataSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearch(value);
-        dispatch(onGetProvinceList({ name: value, countryId: country }));
+        const req: {name: string, countryId?: number} = { name: value };
+        if(country)
+            req.countryId = country;       
+        dispatch(onGetProvinceList(req));
     }
 
 
     useEffect(() => {     
-        dispatch(onGetProvinceList({ countryId: country }));
+        if(country)
+            dispatch(onGetProvinceList({ countryId: country }));
     }, [country]);
 
 
@@ -197,7 +201,7 @@ const ProvinceListView = () => {
                         
                         </div>
 
-                        <DropdownData data="country" {...{setState: setCountry}}/>
+                        <DropdownData data="country" title="Select Country" {...{setState: setCountry, state: country}}/>
                         <div className="lg:col-span-2 ltr:lg:text-right rtl:lg:text-left xl:col-span-2 xl:col-start-11">
                             <Link to="/province-add" type="button" 
                             className="text-white btn bg-custom-500 border-custom-500

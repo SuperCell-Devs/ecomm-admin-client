@@ -61,7 +61,8 @@ export interface IUpdateCountryProps { id: number, data: Partial<Country> }
 export interface Province {
   nameAr: string;
   nameEn: string;
-  countryId: ICountry;
+  id: number;
+  country: ICountry;
 }
 
 export interface IProvincePost {
@@ -89,7 +90,11 @@ export interface IDistrict extends District {
     id: number;
 }
 export type IPutDistrict = Partial<IPostDistrict>; 
-export type IPostDistrict = Omit<IDistrict, 'id'>;
+export interface IPostDistrict {
+  nameAr: string;
+  nameEn: string;
+  provinceId: number
+}
 export interface IPutCountry extends ICountry {}
 export interface IGetAllDistrictProps { name?: string, page?: number, pageSize?: number }
 export interface IGetOneDistrictProps { id: number }

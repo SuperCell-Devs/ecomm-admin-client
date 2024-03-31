@@ -41,7 +41,7 @@ import {
 } from "../../helpers/fakebackend_helper";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetAllProvinceProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IGetOneProvinceProps, IUpdateCountryProps } from "helpers/interface/api";
+import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetAllProvinceProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IGetOneProvinceProps, IPostDistrict, IPostVendors, IProvincePost, IUpdateCountryProps } from "helpers/interface/api";
 
 export const getOrders = createAsyncThunk("ecommerce/getOrders", async () => {
     try {
@@ -290,7 +290,7 @@ export const getOneDistrict = createAsyncThunk("ecommerce/getOneDistrict", async
         return error;
     }
 });
-export const addDistrictList = createAsyncThunk("ecommerce/addDistrictList", async (event: any) => {
+export const addDistrictList = createAsyncThunk("ecommerce/addDistrictList", async (event: IPostDistrict) => {
     try {
         const response = addDistrictListApi(event);
         const data = await response;
@@ -332,7 +332,7 @@ export const getVendorList = createAsyncThunk("ecommerce/getVendorsList", async 
         return error;
     }
 });
-export const addVendorsList = createAsyncThunk("ecommerce/addVendorsList", async (event: any) => {
+export const addVendorsList = createAsyncThunk("ecommerce/addVendorsList", async (event: IPostVendors) => {
     try {
         const response = addVendorsListApi(event);
         const data = await response;
@@ -394,7 +394,7 @@ export const getOneProvince = createAsyncThunk("ecommerce/getOneProvince", async
         return error;
     }
 });
-export const addProvinceList = createAsyncThunk("ecommerce/addProvinceList", async (event: any) => {
+export const addProvinceList = createAsyncThunk("ecommerce/addProvinceList", async (event: IProvincePost) => {
     try {
         const response = await addProvinceListApi(event);
         const data = response;

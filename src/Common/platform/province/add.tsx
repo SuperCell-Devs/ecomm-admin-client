@@ -1,39 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import BreadCrumb from "Common/BreadCrumb";
 // Formik
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
 // react-redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { createSelector } from 'reselect';
 import { 
-    updateProvinceList as onUpdateProvinceList,
-    getOneProvince as onGetOnProvince,
-    getCountryList as onGetCountryList
-
+    addProvinceList as onAddProvinceList,
  } from "slices/thunk";
-import { createSelector } from "@reduxjs/toolkit";
-import {  ICountry, Paginated } from "helpers/interface/api";
-import { useParams } from "react-router-dom";
-import Select from "react-select";
+import DropdownData from "../common/DropdownData";
 
 
 const ProvinceAddNew = () => {
-    const {id} = useParams();
     const dispatch = useDispatch<any>();
-    const [countryData, setCountryData] = useState<Paginated<ICountry[]>>();
-    const [countrySearch, setCountrySearc] = useState<number>();
-
-
-    const selectCountryDataList = createSelector(
-        (state: any) => state.Ecommerce,
-        (state) => ({
-            dataList: state.country
-        })
-    );
-    const { dataList: countryDataList } = useSelector(selectCountryDataList);
-    
+    const [country, setCountry] = useState<number>();
 
 
     const [loading, setLoading] = useState(false);
@@ -56,37 +38,11 @@ const ProvinceAddNew = () => {
 
         onSubmit: (values, {resetForm}) => {
             setLoading(true);
-            if(id){
-                dispatch(onUpdateProvinceList({id: parseInt(id), data: values}));
-                resetForm();
-                setLoading(false);
-            }
+            dispatch(onAddProvinceList({ ...values, countryId: country as number }));
+            resetForm();
+            setLoading(false);
         },
     });
-    
-    // Get Data
-    useEffect(() => {
-        if(id){
-            dispatch(onGetOnProvince({ id: parseInt(id) }));
-            dispatch(onGetCountryList());
-        }
-    }, [dispatch, id]);
-
-
-
-    useEffect(() => {     
-        setCountryData(countryDataList);
-    }, [countryDataList]);
-
-        // react-select options parser (Country selector)
-        interface Options {
-            label: string; value?: string; isDisabled?: boolean; options?: Options[];
-        }
-        const selectedCountry = countryData?.results?.find(e => e.id === countrySearch)
-        let paresToOption: Options = {value: "", label: ""};
-        if(selectedCountry)
-            paresToOption = { value: String(selectedCountry?.id), label: selectedCountry?.arName }; 
-        
 
     return (
         <React.Fragment>
@@ -109,7 +65,7 @@ const ProvinceAddNew = () => {
                                             type="text"
                                             id="nameAr"
                                             className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                            placeholder="Brand Name arabic"
+                                            placeholder="Province Name arabic"
                                             onChange={validation.handleChange}
                                             value={validation.values.nameAr || ""}  />
                                         {validation.touched.nameAr && validation.errors.nameAr ?  <p className="text-red-400">{validation.errors.nameAr}</p>:null}
@@ -120,21 +76,12 @@ const ProvinceAddNew = () => {
                                         onChange={validation.handleChange}
                                         value={validation.values.nameEn || ""} 
                                         className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                         placeholder="Brand Name english" />
+                                         placeholder="Province Name english" />
                                            {validation.touched.nameEn && validation.errors.nameEn ?  <p className="text-red-400">{validation.errors.nameEn}</p>:null}
                                     </div>
                                     <div className="xl:col-span-2">
-                                    <Select
-                                        className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices name="choices-single-default"
-                                        options={countryData?.results?.map((e) => ( {value: e.id, label: e.arName, isDisabled: false, options: []}))}
-                                        onChange={(e) => {
-                                            if (e?.value)
-                                                setCountrySearc(parseInt(e?.value));
-                                        } }
-                                        isMulti={false}
-                                        value={paresToOption}
-                                    />
-                                </div>
+                                        <DropdownData data="country" setState={setCountry} state={country}/>
+                                    </div>
                            
                                 
                                 </div>

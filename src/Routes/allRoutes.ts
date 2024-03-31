@@ -277,7 +277,7 @@ const authProtectedRoutes: Array<RouteObject> = [
   // Province
   { path: "/province", component: ProvinceListView },
   { path: "/province-add", component:  ProvinceAddNew },
-  { path: "/province-edit", component: ProvinceEdit },
+  { path: "/province-edit/:id", component: ProvinceEdit },
 
 
 

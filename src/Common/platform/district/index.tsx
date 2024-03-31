@@ -22,13 +22,14 @@ import {
 } from 'slices/thunk';
 // import filterDataBySearch from "Common/filterDataBySearch";
 import { IDistrict, Paginated } from "helpers/interface/api";
+// import DropdownData from "../common/DropdownData";
 
 const DistrictListView = () => {
 
     const dispatch = useDispatch<any>();
 
     const [search, setSearch] = useState<string>("");
-
+    // const [province, setProvince] = useState<number>();
     const selectDataList = createSelector(
         (state: any) => state.Ecommerce,
         (state) => ({
@@ -55,6 +56,11 @@ const DistrictListView = () => {
         setSearch(value);
         dispatch(onGetDistrictsList({name: value}));
     }
+
+    // useEffect(() => {
+        // TODO: ask backend dev to add province filter
+        // dispatch(onGetDistrictsList());
+    // }, [province])
 
     // Delete Modal
     // const [deleteModal, setDeleteModal] = useState<boolean>(false);
@@ -161,19 +167,11 @@ const DistrictListView = () => {
 
                                 <Search className="inline-block size-4 absolute ltr:left-2.5 rtl:right-2.5 top-2.5 text-slate-500 dark:text-zink-200 fill-slate-100 dark:fill-zink-600" />
                             </div>
+
                         </div>
+
                         {/* <div className="xl:col-span-2">
-                            <div>
-                                <Flatpickr
-                                    className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
-                                    options={{
-                                        dateFormat: "d M, Y",
-                                        mode: "range",
-                                    }}
-                                    placeholder='Select date'
-                                    readOnly={true}
-                                />
-                            </div>
+                            <DropdownData data="province" title="Select province" state={province} setState={setProvince} />  
                         </div> */}
                         <div className="lg:col-span-2 ltr:lg:text-right rtl:lg:text-left xl:col-span-2 xl:col-start-11">
                             <Link to="/district-add" type="button" 

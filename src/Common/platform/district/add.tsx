@@ -9,6 +9,7 @@ import { useFormik } from "formik";
 import { useDispatch } from 'react-redux';
 // import { createSelector } from 'reselect';
 import { addDistrictList as onAddDistrictsList } from "slices/thunk";
+import DropdownData from "../common/DropdownData";
 
 
 
@@ -16,28 +17,33 @@ const DistrictAddNew = () => {
 
     const dispatch = useDispatch<any>();
     const [loading, setLoading] = useState(false);
+    const [province, setProvince] = useState<number>();
 
-        // validation
-        const validation: any = useFormik({
+    // validation
+    const validation: any = useFormik({
             // enableReinitialize : use this flag when initial values needs to be changed
             enableReinitialize: true,
     
             initialValues: {
                 nameAr: '',
                 nameEn: '',
+                provinceId: 1,
             },
             validationSchema: Yup.object({
                 nameAr: Yup.string(),
                 nameEn: Yup.string(),
+                provinceId: Yup.number().required("Province is required")
             }),
     
-            onSubmit: (values, {resetForm}) => {
+            onSubmit: async (values, { resetForm, }) => {
                 setLoading(true);
-                dispatch(onAddDistrictsList(values));
-                resetForm();
+                if(province){
+                    dispatch(onAddDistrictsList({...values, provinceId: Number(province)}));
+                    resetForm();
+                }
                 setLoading(false);
             },
-        });
+    });
     
 
     return (
@@ -74,6 +80,10 @@ const DistrictAddNew = () => {
                                         className="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"
                                          placeholder="District Name english" />
                                            {validation.touched.nameEn && validation.errors.nameEn ?  <p className="text-red-400">{validation.errors.nameEn}</p>:null}
+                                    </div>
+
+                                    <div className="xl:col-span-6">
+                                        <DropdownData data="province" title="Select province" state={province} setState={setProvince}/>
                                     </div>
                                 </div>
                                  

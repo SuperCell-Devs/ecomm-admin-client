@@ -1,6 +1,6 @@
 import { User } from "slices/thunk";
 import { APIClient, AuthenticationAPIClient } from "./api_helper";
-import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetAllProvinceProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IGetOneProvinceProps, IPostBrand, IPostDistrict, IProvincePost, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps, IUpdateProvinceProps } from "./interface/api";
+import { IGetAllBrandsProps, IGetAllCountryProps, IGetAllDistrictProps, IGetAllProvinceProps, IGetOneBrandProps, IGetOneCountryProps, IGetOneDistrictProps, IGetOneProvinceProps, IPostBrand, IPostDistrict, IPostVendors, IProvincePost, IUpdateBrandProps, IUpdateCountryProps, IUpdateDistrictProps, IUpdateProvinceProps } from "./interface/api";
 import * as url from "./url_helper";
 
 
@@ -154,7 +154,7 @@ export const deleteDistrictList = (data: any) => districtApi.delete(url.DELETE_D
 
 // Vendor
 export const getVendorsList = () => vendorApi.get(url.GET_DISTRICT_LIST, null);
-export const addVendorsList = (data: any) => vendorApi.create(url.ADD_DISTRICT_LIST, data);
+export const addVendorsList = (data: IPostVendors) => vendorApi.create(url.ADD_DISTRICT_LIST, data);
 export const updateVendorsList = (data: any) => vendorApi.update(url.UPDATE_DISTRICT_LIST, data);
 export const deleteVendorsList = (data: any) => vendorApi.delete(url.DELETE_DISTRICT_LIST, { headers: { data } });
 

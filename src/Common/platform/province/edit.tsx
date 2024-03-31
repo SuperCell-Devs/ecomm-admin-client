@@ -9,23 +9,19 @@ import { useDispatch, useSelector } from 'react-redux';
 // import { createSelector } from 'reselect';
 import { 
     updateProvinceList as onUpdateProvinceList,
-    getOneProvince as onGetOnProvince,
-    getCountryList as onGetCountryList
-
+    getOneProvince as onGetOnProvince
  } from "slices/thunk";
 import { createSelector } from "@reduxjs/toolkit";
-import {  ICountry, Paginated, Province } from "helpers/interface/api";
+import {  Paginated, Province } from "helpers/interface/api";
 import { useParams } from "react-router-dom";
-import Select from "react-select";
+import DropdownData from "../common/DropdownData";
 
 
 const ProvinceEdit = () => {
     const {id} = useParams();
     const dispatch = useDispatch<any>();
-    const [data, setData] = useState<Paginated<Province>>();
-    const [countryData, setCountryData] = useState<Paginated<ICountry[]>>();
-    const [countrySearch, setCountrySearc] = useState<number>();
-
+    const [data, setData] = useState<Paginated<Province>>();    
+    const [country, setCountry] = useState<number>();
     const selectDataList = createSelector(
         (state: any) => state.Ecommerce,
         (state) => ({
@@ -33,15 +29,7 @@ const ProvinceEdit = () => {
         })
     );
 
-    const selectCountryDataList = createSelector(
-        (state: any) => state.Ecommerce,
-        (state) => ({
-            dataList: state.country
-        })
-    );
-    const { dataList: countryDataList } = useSelector(selectCountryDataList);
-    
-
+ 
 
     const { dataList } = useSelector(selectDataList);
     const [loading, setLoading] = useState(false);
@@ -52,9 +40,9 @@ const ProvinceEdit = () => {
         enableReinitialize: true,
 
         initialValues: {
-            nameAr: data?.results.nameAr || "",
-            nameEn: data?.results.nameEn || "",
-            countryId: data?.results.countryId || ""
+            nameAr: data?.results?.nameAr || "",
+            nameEn: data?.results?.nameEn || "",
+            countryId: data?.results?.country || ""
         },
         validationSchema: Yup.object({
             nameAr: Yup.string(),
@@ -76,32 +64,13 @@ const ProvinceEdit = () => {
     useEffect(() => {
         if(id){
             dispatch(onGetOnProvince({ id: parseInt(id) }));
-            dispatch(onGetCountryList());
         }
     }, [dispatch, id]);
 
     useEffect(() => {     
+        setCountry(dataList?.results?.country?.id)
         setData(dataList);
     }, [dataList]);
-
-    useEffect(() => {     
-        setCountryData(countryDataList);
-    }, [countryDataList]);
-
-        // react-select options parser (Country selector)
-        interface Options {
-            label: string; value?: string; isDisabled?: boolean; options?: Options[];
-        }
-        const selectedCountry = countryData?.results?.find(e => e.id === countrySearch)
-        let paresToOption: Options = {value: "", label: ""};
-        if(selectedCountry)
-            paresToOption = { value: String(selectedCountry?.id), label: selectedCountry?.arName }; 
-        
-        const defaultCountryValue = countryData?.results?.find((e => e.id === validation.values.countryId))
-        let parseDefaultCountryValue: Options = {label: "", value: "", isDisabled: false, options: []}; 
-        if(defaultCountryValue)
-            parseDefaultCountryValue = { value: String(defaultCountryValue?.id), label: defaultCountryValue.arName };
-
 
     return (
         <React.Fragment>
@@ -139,18 +108,11 @@ const ProvinceEdit = () => {
                                            {validation.touched.nameEn && validation.errors.nameEn ?  <p className="text-red-400">{validation.errors.nameEn}</p>:null}
                                     </div>
                                     <div className="xl:col-span-2">
-                                    <Select
-                                        className="border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" data-choices name="choices-single-default"
-                                        options={countryData?.results?.map((e) => ( {value: e.id, label: e.arName, isDisabled: false, options: []}))}
-                                        onChange={(e) => {
-                                            if (e?.value)
-                                                setCountrySearc(parseInt(e?.value));
-                                        } }
-                                        isMulti={false}
-                                        value={paresToOption}
-                                        defaultValue={parseDefaultCountryValue}
-                                    />
-                                </div>
+                                      
+                                      {
+                                        data && <DropdownData data="country" title="Select Country" state={country} setState={setCountry} />
+                                      }
+                                    </div>
                            
                                 
                                 </div>
