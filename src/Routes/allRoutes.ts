@@ -115,7 +115,7 @@ import BasicTable from "pages/Components/Table/Basic";
 import ReactDataTable from "pages/Components/Table/ReactTable";
 import RemixIcon from "pages/Components/Icons/Remix";
 import LucidIcon from "pages/Components/Icons/Lucide";
-import MapsGoogle from "pages/Components/MapsGoogle";
+// import MapsGoogle from "pages/Components/MapsGoogle";
 import MapsLeaflet from "pages/Components/MapsLeaflet";
 
 //Charts
@@ -226,11 +226,6 @@ import ProvinceAddNew from "Common/platform/province/add";
 import ProvinceEdit from "Common/platform/province/edit";
 import CategoryListView from "Common/platform/category";
 
-
-
-
-
-
 interface RouteObject {
   path: string;
   component: React.ComponentType<any>; // Use React.ComponentType to specify the type of the component
@@ -238,9 +233,7 @@ interface RouteObject {
 }
 
 const authProtectedRoutes: Array<RouteObject> = [
-
   // System routes start here
-
 
   // Products
   { path: "/products", component: ProductsListView },
@@ -258,11 +251,10 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/district-add", component: DistrictAddNew },
   { path: "/district-edit/:id", component: DistrictEdit },
 
-   // Category
-   { path: "/category", component: CategoryListView },
-   { path: "/category-add", component: DistrictAddNew },
-   { path: "/category-edit/:id", component: DistrictEdit },
-  
+  // Category
+  { path: "/category", component: CategoryListView },
+  { path: "/category-add", component: DistrictAddNew },
+  { path: "/category-edit/:id", component: DistrictEdit },
 
   // brand
   { path: "/brands", component: BrandListView },
@@ -276,13 +268,11 @@ const authProtectedRoutes: Array<RouteObject> = [
 
   // Province
   { path: "/province", component: ProvinceListView },
-  { path: "/province-add", component:  ProvinceAddNew },
+  { path: "/province-add", component: ProvinceAddNew },
   { path: "/province-edit/:id", component: ProvinceEdit },
 
-
-
   // System routes end here
-  
+
   // Dashboard
   { path: "/", component: Ecommerce },
   { path: "/dashboard", component: Ecommerce },
@@ -350,9 +340,8 @@ const authProtectedRoutes: Array<RouteObject> = [
   { path: "/icons-lucide", component: LucidIcon },
 
   // Map
-  { path: "/maps-google", component: MapsGoogle },
+  // { path: "/maps-google", component: MapsGoogle },
   { path: "/maps-leaflet", component: MapsLeaflet },
-
 
   //Charts
   { path: "/charts-apex-area", component: AreaCharts },
@@ -498,12 +487,10 @@ const publicRoutes = [
   // Maintenance
   { path: "/pages-maintenance", component: Maintenance },
 
-
   // authentication
   { path: "/login", component: Login },
   { path: "/logout", component: Logout },
   { path: "/register", component: Register },
-
-]
+];
 
 export { authProtectedRoutes, publicRoutes };

@@ -277,7 +277,7 @@ module.exports = {
         // require('./plugins/colorpicker.js'),  // instead react-color picker
         require('./plugins/ckeditor.js'),
         require('./plugins/apexcharts.js'),
-        require('./plugins/maps.js'), // google-maps-react
+        // require('./plugins/maps.js'), // google-maps-react
         // require('./plugins/multijs.js'), // instead react-dual-listbox
         require('./plugins/fullcalendar.js'),
         require('./plugins/lightbox.js'),
