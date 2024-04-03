@@ -1,2 +1,1 @@
-# tailwick-react
-tailwick-react
+### DEPRECATED
